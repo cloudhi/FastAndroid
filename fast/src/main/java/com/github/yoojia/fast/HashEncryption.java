@@ -10,7 +10,7 @@ import java.security.NoSuchAlgorithmException;
  * @version 2015-04-09
  * @since   1.0
  */
-public class Hash {
+public class HashEncryption {
 
     /**
      * Hash加密文本内容，并指定Hash算法名称

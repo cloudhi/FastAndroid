@@ -25,7 +25,7 @@ public class MobileID {
         buf.append(getIMEI(context));
         buf.append(getWIFIMAC(context));
         buf.append(getBluetoothMAC());
-        return Hash.encrypt(buf.toString(), "MD5");
+        return HashEncryption.encrypt(buf.toString(), "MD5");
     }
 
     /**
