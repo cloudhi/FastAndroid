@@ -28,7 +28,9 @@
     <style name="iOSTableCell.Icon">
         <item name="android:layout_width">32dp</item>
         <item name="android:layout_height">32dp</item>
-        <item name="android:layout_margin">10dp</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:layout_marginBottom">10dp</item>
+        <item name="android:layout_marginLeft">10dp</item>
         <item name="android:layout_centerVertical">true</item>
         <item name="android:clickable">false</item>
     </style>
@@ -37,6 +39,7 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">18sp</item>
+        <item name="android:layout_marginLeft">18dp</item>
         <item name="android:textColor">@color/iOSTableCellText.Normal</item>
         <item name="android:layout_centerVertical">true</item>
         <item name="android:singleLine">true</item>

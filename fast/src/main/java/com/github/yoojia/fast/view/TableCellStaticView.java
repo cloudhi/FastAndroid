@@ -47,6 +47,8 @@ public class TableCellStaticView extends FrameLayout {
         final int iconResId = myAttrs.getResourceId(R.styleable.iOSTableStaticCell_cell_icon, 0);
         if (iconResId != 0){
             mIcon.setImageResource(iconResId);
+        }else{
+            mIcon.setVisibility(GONE);
         }
 
         final int labelResId = myAttrs.getResourceId(R.styleable.iOSTableStaticCell_cell_label, 0);
@@ -54,7 +56,11 @@ public class TableCellStaticView extends FrameLayout {
             mLabel.setText(labelResId);
         }else{
             final String label = myAttrs.getString(R.styleable.iOSTableStaticCell_cell_label);
-            if (!TextUtils.isEmpty(label)) mLabel.setText(label);
+            if (!TextUtils.isEmpty(label)){
+                mLabel.setText(label);
+            }else{
+                mLabel.setVisibility(GONE);
+            }
         }
 
         final int valueResId = myAttrs.getResourceId(R.styleable.iOSTableStaticCell_cell_value, 0);
@@ -62,7 +68,11 @@ public class TableCellStaticView extends FrameLayout {
             mValue.setText(valueResId);
         }else{
             final String value = myAttrs.getString(R.styleable.iOSTableStaticCell_cell_value);
-            if (!TextUtils.isEmpty(value)) mValue.setText(value);
+            if (!TextUtils.isEmpty(value)){
+                mValue.setText(value);
+            }else{
+                mValue.setVisibility(GONE);
+            }
         }
 
         final boolean isFirstCell = myAttrs.getBoolean(R.styleable.iOSTableStaticCell_first, false);
