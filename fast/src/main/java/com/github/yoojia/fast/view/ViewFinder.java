@@ -40,23 +40,41 @@ public class ViewFinder {
      * @param host AutoView所在的宿主
      */
     public static void inject(Activity host){
+        _inject(host, host);
+    }
+
+    /**
+     * 自动注入Auto变量
+     * @param host AutoView所在的宿主
+     * @param rootView 宿主的RootView
+     */
+    public static void inject(Object host, View rootView){
+        _inject(host, rootView);
+    }
+
+    private static void _inject(Object host, Object viewParent){
         final Field[] fields = host.getClass().getDeclaredFields();
-        for (Field f : fields){
-            AutoView config = f.getAnnotation(AutoView.class);
+        for (Field field : fields){
+            AutoView config = field.getAnnotation(AutoView.class);
             if (config == null) continue;
-            f.setAccessible(true);
+            field.setAccessible(true);
             final int viewId = config.viewId();
-            final View view = host.findViewById(viewId);
-            if (view == null){
-                throw new IllegalArgumentException(String.format("View(ID:%d) not found!", viewId));
+            View view = null;
+            if (viewParent instanceof View){
+                view = ((View) viewParent).findViewById(viewId);
+            }else if (viewParent instanceof Activity){
+                view = ((Activity) viewParent).findViewById(viewId);
             }
-            final Class<?> type = f.getType();
+            if (view == null){
+                throw new IllegalArgumentException(String.format("The View(ID:%d) NOT FOUND!", viewId));
+            }
+            final Class<?> type = field.getType();
             try {
-                f.set(host, type.cast(view));
-            } catch (IllegalAccessException e) {
-                throw new IllegalStateException(e);
-            }catch (ClassCastException e1){
-                throw new IllegalStateException("Does your view id correct ?");
+                field.set(host, type.cast(view));
+            } catch (IllegalAccessException iae) {
+                throw new IllegalStateException(iae);
+            }catch (ClassCastException cce){
+                throw new IllegalArgumentException(cce);
             }
         }
     }
