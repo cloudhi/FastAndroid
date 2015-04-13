@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="iOSTableCellNormal">#FFFFFF</color>
+    <color name="iOSTableCellSelected">#E5E5E5</color>
+
+    <color name="iOSDivider">#DCDCDC</color>
+    <color name="iOSTableCellText.Normal">#323232</color>
+    <color name="iOSTableCellText.Disabled">#6E6E6E</color>
+
+    <style name="iOSDivider">
+        <item name="android:background">@color/iOSDivider</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0.5dp</item>
+    </style>
+
+    <style name="iOSTableDivider" parent="iOSDivider">
+        <item name="android:layout_marginLeft">15dp</item>
+    </style>
+
+    <style name="iOSTableCell">
+        <item name="android:background">@drawable/ios_table_cell</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:clickable">true</item>
+    </style>
+
+    <style name="iOSTableCell.Icon">
+        <item name="android:layout_width">32dp</item>
+        <item name="android:layout_height">32dp</item>
+        <item name="android:layout_margin">10dp</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:clickable">false</item>
+    </style>
+
+    <style name="iOSTableCell.Name">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/iOSTableCellText.Normal</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:clickable">false</item>
+    </style>
+
+    <style name="iOSTableCell.Value" parent="iOSTableCell.Name">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/iOSTableCellText.Disabled</item>
+    </style>
+
+    <style name="iOSTableCellStatic" parent="iOSTableCell">
+        <item name="android:background">@drawable/ios_table_cell</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">45dp</item>
+    </style>
+
+    <declare-styleable name="iOSTableStaticCell">
+        <attr name="cell_icon" format="integer" />
+        <attr name="cell_label" format="string" />
+        <attr name="cell_value" format="string" />
+        <attr name="first" format="boolean" />
+        <attr name="last" format="boolean" />
+        <attr name="cell_disabled_next" format="boolean" />
+    </declare-styleable>
+
+</resources>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+               style="@style/iOSTableCell"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/ios_icon"
+        style="@style/iOSTableCell.Icon"/>
+
+    <TextView
+        android:id="@+id/ios_name"
+        android:layout_toRightOf="@id/ios_icon"
+        style="@style/iOSTableCell.Name"/>
+
+    <ImageView
+        android:id="@+id/ios_next"
+        android:src="@mipmap/ios_table_cell_arrow"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_width="14dp"
+        android:layout_height="14dp"/>
+
+    <TextView
+        android:id="@+id/ios_value"
+        android:layout_toRightOf="@id/ios_name"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="40dp"
+        android:gravity="right"
+        style="@style/iOSTableCell.Value"/>
+
+    <View
+        android:id="@+id/ios_top_divider"
+        android:layout_alignParentTop="true"
+        android:visibility="gone"
+        style="@style/iOSDivider"/>
+
+    <View
+        android:id="@+id/ios_bottom_divider"
+        android:layout_alignParentBottom="true"
+        android:visibility="gone"
+        style="@style/iOSDivider"/>
+
+    <View
+        android:id="@+id/ios_divider"
+        android:layout_alignParentBottom="true"
+        style="@style/iOSTableDivider"/>
+
+</RelativeLayout>

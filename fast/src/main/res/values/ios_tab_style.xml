@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="iOSTextNormal">#252525</color>
+    <color name="iOSTextSelected">#29A0DC</color>
+
+    <style name="iOSTabTextNormal">
+        <item name="android:textColor">@color/iOSTextNormal</item>
+    </style>
+    <style name="iOSTabTextSelected">
+        <item name="android:textColor">@color/iOSTextSelected</item>
+    </style>
+
+</resources>

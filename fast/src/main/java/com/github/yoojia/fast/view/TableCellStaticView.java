@@ -1,0 +1,84 @@
+package com.github.yoojia.fast.view;
+
+import android.content.Context;
+import android.content.res.TypedArray;
+import android.text.TextUtils;
+import android.util.AttributeSet;
+import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.github.yoojia.fast.R;
+
+/**
+ * iOS Table static cell view
+ * @author  yoojia.chen@gmail.com
+ * @version version 2015-04-13
+ * @since   1.0
+ */
+public class TableCellStaticView extends FrameLayout {
+
+    private final ImageView mIcon;
+    private final TextView mLabel;
+    private final TextView mValue;
+    private final View mTopDivider;
+    private final View mBottomDivider;
+    private final View mDivider;
+    private final View mNext;
+
+    public TableCellStaticView(Context context, AttributeSet attrs) {
+        super(context, attrs);
+
+        final View realView = View.inflate(context, R.layout.ios_table_cell_static, null);
+        addView(realView);
+
+        mIcon = (ImageView) realView.findViewById(R.id.ios_icon);
+        mLabel = (TextView) realView.findViewById(R.id.ios_name);
+        mValue = (TextView) realView.findViewById(R.id.ios_value);
+        mTopDivider = realView.findViewById(R.id.ios_top_divider);
+        mBottomDivider = realView.findViewById(R.id.ios_bottom_divider);
+        mDivider = realView.findViewById(R.id.ios_divider);
+        mNext = realView.findViewById(R.id.ios_next);
+
+        final TypedArray myAttrs = context.obtainStyledAttributes(attrs,
+                R.styleable.iOSTableStaticCell);
+
+        final int iconResId = myAttrs.getResourceId(R.styleable.iOSTableStaticCell_cell_icon, 0);
+        if (iconResId != 0){
+            mIcon.setImageResource(iconResId);
+        }
+
+        final int labelResId = myAttrs.getResourceId(R.styleable.iOSTableStaticCell_cell_label, 0);
+        if (labelResId != 0){
+            mLabel.setText(labelResId);
+        }else{
+            final String label = myAttrs.getString(R.styleable.iOSTableStaticCell_cell_label);
+            if (!TextUtils.isEmpty(label)) mLabel.setText(label);
+        }
+
+        final int valueResId = myAttrs.getResourceId(R.styleable.iOSTableStaticCell_cell_value, 0);
+        if (valueResId != 0){
+            mValue.setText(valueResId);
+        }else{
+            final String value = myAttrs.getString(R.styleable.iOSTableStaticCell_cell_value);
+            if (!TextUtils.isEmpty(value)) mValue.setText(value);
+        }
+
+        final boolean isFirstCell = myAttrs.getBoolean(R.styleable.iOSTableStaticCell_first, false);
+        if (isFirstCell){
+            mTopDivider.setVisibility(VISIBLE);
+        }
+
+        final boolean isLastCell = myAttrs.getBoolean(R.styleable.iOSTableStaticCell_last, false);
+        if (isLastCell){
+            mBottomDivider.setVisibility(VISIBLE);
+            mDivider.setVisibility(GONE);
+        }
+
+        final boolean disabledNext = myAttrs.getBoolean(R.styleable.iOSTableStaticCell_cell_disabled_next, false);
+        if (disabledNext){
+            mNext.setVisibility(GONE);
+        }
+    }
+}
