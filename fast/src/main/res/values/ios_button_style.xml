@@ -12,6 +12,9 @@
     <color name="iOSButtonRed.Normal">#DD524D</color>
     <color name="iOSButtonRed.Selected">#DB5357</color>
 
+    <color name="iOSButtonGray.Normal">#CCCCCC</color>
+    <color name="iOSButtonGray.Selected">#BBBBBB</color>
+
     <style name="iOSButton">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
