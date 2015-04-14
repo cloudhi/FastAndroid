@@ -8,7 +8,7 @@ public class TableCellStaticActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_table_cell_static);
+        setContentView(R.layout.fragment_table_cell_static);
     }
 
 }

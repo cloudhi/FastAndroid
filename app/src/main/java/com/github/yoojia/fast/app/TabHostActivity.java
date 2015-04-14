@@ -20,10 +20,10 @@ public class TabHostActivity extends ActionBarActivity {
         ViewFinder.inject(this);
 
         mTabHost.setup(this, getSupportFragmentManager(), android.R.id.tabcontent);
-        mTabHost.addTab(FragmentTabSpec.create(mTabHost, "coupon", R.drawable.icon_coupon, R.string.app_name),
-                TestFragment.class, null);
-        mTabHost.addTab(FragmentTabSpec.create(mTabHost, "statistics", R.drawable.icon_statistics, R.string.app_name),
-                TestFragment.class, null);
+        mTabHost.addTab(FragmentTabSpec.create(mTabHost, "table", R.drawable.icon_coupon, R.string.test_table),
+                TableFragment.class, null);
+        mTabHost.addTab(FragmentTabSpec.create(mTabHost, "buttons", R.drawable.icon_statistics, R.string.test_button),
+                ButtonFragment.class, null);
         mTabHost.addTab(FragmentTabSpec.create(mTabHost, "record", R.drawable.icon_record, R.string.app_name),
                 TestFragment.class, null);
         mTabHost.addTab(FragmentTabSpec.create(mTabHost, "profile", R.drawable.icon_profile, R.string.app_name),

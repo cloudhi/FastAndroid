@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:padding="16dp"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+
+    <Button
+        android:text="Blue"
+        style="@style/iOSButton.Blue"/>
+
+    <Button
+        android:text="Green"
+        android:layout_marginTop="10dp"
+        style="@style/iOSButton.Green"/>
+
+    <Button
+        android:text="Red"
+        android:layout_marginTop="10dp"
+        style="@style/iOSButton.Red"/>
+
+    <Button
+        android:text="Outlined Blue"
+        android:layout_marginTop="10dp"
+        style="@style/iOSButton.Blue.Outlined"/>
+
+    <Button
+        android:text="Outlined Green"
+        android:layout_marginTop="10dp"
+        style="@style/iOSButton.Green.Outlined"/>
+
+    <Button
+        android:text="Outlined Red"
+        android:layout_marginTop="10dp"
+        style="@style/iOSButton.Red.Outlined"/>
+
+</LinearLayout>

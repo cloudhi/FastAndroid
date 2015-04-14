@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <color name="iOSTableBackground">#EFEFF4</color>
     <color name="iOSTableCellNormal">#FFFFFF</color>
     <color name="iOSTableCellSelected">#E5E5E5</color>
 

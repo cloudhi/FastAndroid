@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="iOSButtonRadius">5px</dimen>
+
+    <color name="iOSButtonBlue.Normal">#007AFF</color>
+    <color name="iOSButtonBlue.Selected">#147EFB</color>
+
+    <color name="iOSButtonGreen.Normal">#4CD964</color>
+    <color name="iOSButtonGreen.Selected">#53D769</color>
+
+    <color name="iOSButtonRed.Normal">#DD524D</color>
+    <color name="iOSButtonRed.Selected">#DB5357</color>
+
+    <style name="iOSButton">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">22sp</item>
+    </style>
+
+    <style name="iOSButton.Outlined" parent="iOSButton">
+        <item name="android:textColor">@color/iOSTextNormal</item>
+    </style>
+
+    <style name="iOSButton.Blue" parent="iOSButton">
+        <item name="android:background">@drawable/ios_button_blue</item>
+    </style>
+
+    <style name="iOSButton.Blue.Outlined" parent="iOSButton.Outlined">
+        <item name="android:background">@drawable/ios_button_blue_outlined</item>
+    </style>
+
+    <style name="iOSButton.Green" parent="iOSButton">
+        <item name="android:background">@drawable/ios_button_green</item>
+    </style>
+
+    <style name="iOSButton.Green.Outlined" parent="iOSButton.Outlined">
+        <item name="android:background">@drawable/ios_button_green_outlined</item>
+    </style>
+
+    <style name="iOSButton.Red" parent="iOSButton">
+        <item name="android:background">@drawable/ios_button_red</item>
+    </style>
+
+    <style name="iOSButton.Red.Outlined" parent="iOSButton.Outlined">
+        <item name="android:background">@drawable/ios_button_red_outlined</item>
+    </style>
+
+</resources>
