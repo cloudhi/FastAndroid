@@ -4,8 +4,9 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.text.TextUtils;
 import android.util.AttributeSet;
-import android.view.MotionEvent;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -20,6 +21,7 @@ import com.github.yoojia.fast.R;
  */
 public class TableCellStaticView extends FrameLayout {
 
+    private final Button mActionHandler;
     private final ImageView mIcon;
     private final TextView mLabel;
     private final TextView mValue;
@@ -28,22 +30,20 @@ public class TableCellStaticView extends FrameLayout {
     private final View mDivider;
     private final View mNext;
 
-    private OnClickListener mOnClickListener;
-
     public TableCellStaticView(Context context, AttributeSet attrs) {
         super(context, attrs);
 
-        final View realView = View.inflate(context, R.layout.ios_table_cell_static, null);
-        addView(realView);
+        LayoutInflater.from(context).inflate(R.layout.ios_table_cell_static, this);
 
-        mIcon = ViewFinder.find(R.id.ios_icon, realView);
-        mLabel = ViewFinder.find(R.id.ios_name, realView);
-        mValue = ViewFinder.find(R.id.ios_value, realView);
+        mIcon = ViewFinder.find(R.id.ios_icon, this);
+        mLabel = ViewFinder.find(R.id.ios_name, this);
+        mValue = ViewFinder.find(R.id.ios_value, this);
+        mActionHandler = ViewFinder.find(R.id.ios_action_handler, this);
 
-        mTopDivider = realView.findViewById(R.id.ios_top_divider);
-        mBottomDivider = realView.findViewById(R.id.ios_bottom_divider);
-        mDivider = realView.findViewById(R.id.ios_divider);
-        mNext = realView.findViewById(R.id.ios_next);
+        mTopDivider = ViewFinder.find(R.id.ios_top_divider, this);
+        mBottomDivider = ViewFinder.find(R.id.ios_bottom_divider, this);
+        mDivider = ViewFinder.find(R.id.ios_divider, this);
+        mNext = ViewFinder.find(R.id.ios_next, this);
 
         final TypedArray myAttrs = context.obtainStyledAttributes(attrs, R.styleable.iOSTableStaticCell);
 
@@ -88,13 +88,7 @@ public class TableCellStaticView extends FrameLayout {
 
     @Override
     public void setOnClickListener(OnClickListener l) {
-        super.setOnClickListener(l);
-        mOnClickListener = l;
-    }
-
-    @Override
-    public boolean onInterceptTouchEvent(MotionEvent ev) {
-        return mOnClickListener != null;
+        mActionHandler.setOnClickListener(l);
     }
 
     private void initBounds(final AttributeSet attrs){

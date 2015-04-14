@@ -8,18 +8,27 @@
                 tools:context="com.github.yoojia.fast.app.TableCellStaticActivity">
 
     <com.github.yoojia.fast.view.TableCellStaticView
+        android:id="@+id/setting"
         ios:cell_label="Setting"
         ios:cell_icon="@drawable/icon_profile"
         ios:first="true"
-        style="@style/iOSTableCell"/>
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
 
     <com.github.yoojia.fast.view.TableCellStaticView
         ios:cell_label="Profile"
-        style="@style/iOSTableCell"/>
+        android:id="@+id/profile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
 
     <com.github.yoojia.fast.view.TableCellStaticView
         ios:cell_label="About Us"
         ios:last="true"
-        style="@style/iOSTableCell"/>
+        android:id="@+id/about"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
 
 </LinearLayout>

@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-               style="@style/iOSTableCell">
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/ios_cell_height"
+    >
+
+    <Button
+        android:id="@+id/ios_action_handler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/ios_table_cell"
+        />
 
     <ImageView
         android:id="@+id/ios_icon"
@@ -19,16 +28,18 @@
         android:alpha="0.3"
         android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp"
+        android:clickable="false"
         android:layout_width="14dp"
         android:layout_height="14dp"/>
 
     <TextView
         android:id="@+id/ios_value"
+        style="@style/iOSTableCell.Value"
         android:layout_toRightOf="@id/ios_name"
         android:layout_alignParentRight="true"
         android:layout_marginRight="40dp"
-        android:gravity="right"
-        style="@style/iOSTableCell.Value"/>
+        android:clickable="false"
+        />
 
     <View
         android:id="@+id/ios_top_divider"

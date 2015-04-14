@@ -14,7 +14,7 @@
         android:id="@+id/label"
         android:layout_gravity="center_horizontal"
         android:textColor="@color/ios_tab_text"
-        android:textSize="12sp"
+        android:textSize="14sp"
         android:singleLine="true"
         android:layout_marginTop="2dp"
         android:layout_width="wrap_content"
