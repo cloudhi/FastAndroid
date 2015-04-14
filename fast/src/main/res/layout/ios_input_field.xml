@@ -15,9 +15,9 @@
         android:layout_alignParentRight="true"
         android:src="@mipmap/ios_input_clear"
         android:alpha="0.3"
-        android:layout_marginRight="10dp"
-        android:layout_width="24dp"
-        android:layout_height="24dp"/>
+        android:padding="5dp"
+        android:layout_width="34dp"
+        android:layout_height="34dp"/>
 
     <EditText
         android:id="@+id/ios_input"

@@ -96,8 +96,10 @@ public class InputFieldView extends FrameLayout{
             public void afterTextChanged(Editable s) {
                 if (TextUtils.isEmpty(s) && mIcon.isShown()){
                     mIcon.setVisibility(INVISIBLE);
+                    mIcon.setEnabled(false);
                 }else{
                     mIcon.setVisibility(VISIBLE);
+                    mIcon.setEnabled(true);
                 }
             }
         });
