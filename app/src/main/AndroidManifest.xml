@@ -8,8 +8,12 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".MainActivity"
+            android:name=".TableCellStaticActivity"
             android:label="@string/title_activity_main" >
+        </activity>
+        <activity
+            android:name=".TabHostActivity"
+            android:label="@string/title_activity_tab_host" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

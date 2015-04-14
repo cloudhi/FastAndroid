@@ -4,7 +4,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
-                tools:context="com.github.yoojia.fast.app.MainActivity">
+                tools:context="com.github.yoojia.fast.app.TableCellStaticActivity">
 
     <com.github.yoojia.fast.view.TableCellStaticView
         ios:cell_label="Setting"

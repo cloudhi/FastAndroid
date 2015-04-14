@@ -1,0 +1,36 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/white"
+                tools:context="com.github.yoojia.fast.app.TabHostActivity">
+
+    <com.github.yoojia.fast.FragmentTabHost
+        android:id="@android:id/tabhost"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TabWidget
+                android:id="@android:id/tabs"
+                style="@style/iOSTabWidget"/>
+
+            <FrameLayout
+                android:id="@android:id/tabcontent"
+                android:layout_above="@android:id/tabs"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+            <View style="@style/iOSDivider"
+                  android:layout_above="@android:id/tabs"
+                />
+
+        </RelativeLayout>
+
+    </com.github.yoojia.fast.FragmentTabHost>
+
+
+</RelativeLayout>

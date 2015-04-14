@@ -1,12 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <color name="iOSTabBackground">#F9F9F9</color>
     <color name="iOSTextNormal">#252525</color>
     <color name="iOSTextSelected">#29A0DC</color>
+
+    <style name="iOSTabWidget">
+        <item name="android:background">@color/iOSTabBackground</item>
+        <item name="android:layout_alignParentBottom">true</item>
+        <item name="android:showDividers">none</item>
+        <item name="android:padding">4dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
 
     <style name="iOSTabTextNormal">
         <item name="android:textColor">@color/iOSTextNormal</item>
     </style>
+
     <style name="iOSTabTextSelected">
         <item name="android:textColor">@color/iOSTextSelected</item>
     </style>
