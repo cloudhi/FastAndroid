@@ -21,7 +21,7 @@
     <style name="iOSTableCell">
         <item name="android:background">@drawable/ios_table_cell</item>
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
         <item name="android:clickable">true</item>
     </style>
 
@@ -38,8 +38,8 @@
     <style name="iOSTableCell.Name">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:textSize">18sp</item>
-        <item name="android:layout_marginLeft">18dp</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:layout_marginLeft">15dp</item>
         <item name="android:textColor">@color/iOSTableCellText.Normal</item>
         <item name="android:layout_centerVertical">true</item>
         <item name="android:singleLine">true</item>
