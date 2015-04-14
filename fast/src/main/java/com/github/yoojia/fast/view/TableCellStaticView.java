@@ -33,9 +33,10 @@ public class TableCellStaticView extends FrameLayout {
         final View realView = View.inflate(context, R.layout.ios_table_cell_static, null);
         addView(realView);
 
-        mIcon = (ImageView) realView.findViewById(R.id.ios_icon);
-        mLabel = (TextView) realView.findViewById(R.id.ios_name);
-        mValue = (TextView) realView.findViewById(R.id.ios_value);
+        mIcon = ViewFinder.find(R.id.ios_icon, realView);
+        mLabel = ViewFinder.find(R.id.ios_name, realView);
+        mValue = ViewFinder.find(R.id.ios_value, realView);
+
         mTopDivider = realView.findViewById(R.id.ios_top_divider);
         mBottomDivider = realView.findViewById(R.id.ios_bottom_divider);
         mDivider = realView.findViewById(R.id.ios_divider);
@@ -75,20 +76,25 @@ public class TableCellStaticView extends FrameLayout {
             }
         }
 
-        final boolean isFirstCell = myAttrs.getBoolean(R.styleable.iOSTableStaticCell_first, false);
-        if (isFirstCell){
-            mTopDivider.setVisibility(VISIBLE);
-        }
-
-        final boolean isLastCell = myAttrs.getBoolean(R.styleable.iOSTableStaticCell_last, false);
-        if (isLastCell){
-            mBottomDivider.setVisibility(VISIBLE);
-            mDivider.setVisibility(GONE);
-        }
+        initBounds(attrs);
 
         final boolean disabledNext = myAttrs.getBoolean(R.styleable.iOSTableStaticCell_cell_disabled_next, false);
         if (disabledNext){
             mNext.setVisibility(GONE);
+        }
+    }
+
+    private void initBounds(final AttributeSet attrs){
+        final TypedArray myAttrs = getContext().obtainStyledAttributes(attrs, R.styleable.iOSCell);
+        final boolean isFirstCell = myAttrs.getBoolean(R.styleable.iOSCell_first, false);
+        if (isFirstCell){
+            mTopDivider.setVisibility(VISIBLE);
+        }
+
+        final boolean isLastCell = myAttrs.getBoolean(R.styleable.iOSCell_last, false);
+        if (isLastCell){
+            mBottomDivider.setVisibility(VISIBLE);
+            mDivider.setVisibility(GONE);
         }
     }
 }

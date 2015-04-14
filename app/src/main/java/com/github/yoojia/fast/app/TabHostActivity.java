@@ -24,8 +24,8 @@ public class TabHostActivity extends ActionBarActivity {
                 TableFragment.class, null);
         mTabHost.addTab(FragmentTabSpec.create(mTabHost, "buttons", R.drawable.icon_statistics, R.string.test_button),
                 ButtonFragment.class, null);
-        mTabHost.addTab(FragmentTabSpec.create(mTabHost, "record", R.drawable.icon_record, R.string.app_name),
-                TestFragment.class, null);
+        mTabHost.addTab(FragmentTabSpec.create(mTabHost, "input", R.drawable.icon_record, R.string.test_input),
+                InputFieldFragment.class, null);
         mTabHost.addTab(FragmentTabSpec.create(mTabHost, "profile", R.drawable.icon_profile, R.string.app_name),
                 TestFragment.class, null);
     }

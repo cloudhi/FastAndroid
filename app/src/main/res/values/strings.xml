@@ -7,4 +7,5 @@
 
     <string name="test_table">表格</string>
     <string name="test_button">按钮</string>
+    <string name="test_input">输入</string>
 </resources>

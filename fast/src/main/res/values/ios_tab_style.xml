@@ -2,8 +2,8 @@
 <resources>
 
     <color name="iOSTabBackground">#F9F9F9</color>
-    <color name="iOSTextNormal">#252525</color>
-    <color name="iOSTextSelected">#29A0DC</color>
+    <color name="iOSTabText.Normal">#252525</color>
+    <color name="iOSTabText.Selected">#29A0DC</color>
 
     <style name="iOSTabWidget">
         <item name="android:background">@color/iOSTabBackground</item>
@@ -15,11 +15,11 @@
     </style>
 
     <style name="iOSTabTextNormal">
-        <item name="android:textColor">@color/iOSTextNormal</item>
+        <item name="android:textColor">@color/iOSTabText.Normal</item>
     </style>
 
     <style name="iOSTabTextSelected">
-        <item name="android:textColor">@color/iOSTextSelected</item>
+        <item name="android:textColor">@color/iOSTabText.Selected</item>
     </style>
 
 </resources>

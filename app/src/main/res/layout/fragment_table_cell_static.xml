@@ -10,15 +10,15 @@
     <com.github.yoojia.fast.view.TableCellStaticView
         ios:cell_label="Setting"
         ios:first="true"
-        style="@style/iOSTableCellStatic"/>
+        style="@style/iOSTableCell"/>
 
     <com.github.yoojia.fast.view.TableCellStaticView
         ios:cell_label="Profile"
-        style="@style/iOSTableCellStatic"/>
+        style="@style/iOSTableCell"/>
 
     <com.github.yoojia.fast.view.TableCellStaticView
         ios:cell_label="About Us"
         ios:last="true"
-        style="@style/iOSTableCellStatic"/>
+        style="@style/iOSTableCell"/>
 
 </LinearLayout>
