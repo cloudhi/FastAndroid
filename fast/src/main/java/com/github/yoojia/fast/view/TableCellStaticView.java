@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.text.TextUtils;
 import android.util.AttributeSet;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -27,6 +28,8 @@ public class TableCellStaticView extends FrameLayout {
     private final View mDivider;
     private final View mNext;
 
+    private OnClickListener mOnClickListener;
+
     public TableCellStaticView(Context context, AttributeSet attrs) {
         super(context, attrs);
 
@@ -42,8 +45,7 @@ public class TableCellStaticView extends FrameLayout {
         mDivider = realView.findViewById(R.id.ios_divider);
         mNext = realView.findViewById(R.id.ios_next);
 
-        final TypedArray myAttrs = context.obtainStyledAttributes(attrs,
-                R.styleable.iOSTableStaticCell);
+        final TypedArray myAttrs = context.obtainStyledAttributes(attrs, R.styleable.iOSTableStaticCell);
 
         final int iconResId = myAttrs.getResourceId(R.styleable.iOSTableStaticCell_cell_icon, 0);
         if (iconResId != 0){
@@ -82,6 +84,17 @@ public class TableCellStaticView extends FrameLayout {
         if (disabledNext){
             mNext.setVisibility(GONE);
         }
+    }
+
+    @Override
+    public void setOnClickListener(OnClickListener l) {
+        super.setOnClickListener(l);
+        mOnClickListener = l;
+    }
+
+    @Override
+    public boolean onInterceptTouchEvent(MotionEvent ev) {
+        return mOnClickListener != null;
     }
 
     private void initBounds(final AttributeSet attrs){
