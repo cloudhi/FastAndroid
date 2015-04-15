@@ -19,34 +19,28 @@ import com.github.yoojia.fast.R;
  * @version version 2015-04-13
  * @since   1.0
  */
-public class TableCellStaticView extends FrameLayout {
+public class TableCellStaticView extends DividerLayout {
 
     private final Button mActionHandler;
     private final ImageView mIcon;
     private final TextView mLabel;
     private final TextView mValue;
-    private final View mTopDivider;
-    private final View mBottomDivider;
-    private final View mDivider;
     private final View mNext;
 
     public TableCellStaticView(Context context, AttributeSet attrs) {
         super(context, attrs);
 
-        LayoutInflater.from(context).inflate(R.layout.ios_table_cell_static, this);
+        View.inflate(context, R.layout.ios_table_cell_static, this);
 
         mIcon = ViewFinder.find(R.id.ios_icon, this);
         mLabel = ViewFinder.find(R.id.ios_name, this);
         mValue = ViewFinder.find(R.id.ios_value, this);
         mActionHandler = ViewFinder.find(R.id.ios_action_handler, this);
-
-        mTopDivider = ViewFinder.find(R.id.ios_top_divider, this);
-        mBottomDivider = ViewFinder.find(R.id.ios_bottom_divider, this);
-        mDivider = ViewFinder.find(R.id.ios_divider, this);
+        findDividers();
         mNext = ViewFinder.find(R.id.ios_next, this);
 
         final TypedArray myAttrs = context.obtainStyledAttributes(attrs, R.styleable.iOSTableStaticCell);
-
+        configDividers(attrs);
         final int iconResId = myAttrs.getResourceId(R.styleable.iOSTableStaticCell_cell_icon, 0);
         if (iconResId != 0){
             mIcon.setImageResource(iconResId);
@@ -76,8 +70,6 @@ public class TableCellStaticView extends FrameLayout {
             }
         }
 
-        initBounds(attrs);
-
         final boolean disabledNext = myAttrs.getBoolean(R.styleable.iOSTableStaticCell_cell_disabled_next, false);
         if (disabledNext){
             mNext.setVisibility(GONE);
@@ -100,19 +92,5 @@ public class TableCellStaticView extends FrameLayout {
 
     public void setText(int textResId){
         mValue.setText(textResId);
-    }
-
-    private void initBounds(final AttributeSet attrs){
-        final TypedArray myAttrs = getContext().obtainStyledAttributes(attrs, R.styleable.iOSCell);
-        final boolean isFirstCell = myAttrs.getBoolean(R.styleable.iOSCell_first, false);
-        if (isFirstCell){
-            mTopDivider.setVisibility(VISIBLE);
-        }
-
-        final boolean isLastCell = myAttrs.getBoolean(R.styleable.iOSCell_last, false);
-        if (isLastCell){
-            mBottomDivider.setVisibility(VISIBLE);
-            mDivider.setVisibility(GONE);
-        }
     }
 }

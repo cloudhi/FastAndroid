@@ -22,34 +22,28 @@ import com.github.yoojia.fast.R;
  * @version version 2015-04-14
  * @since   1.0
  */
-public class InputFieldView extends FrameLayout{
+public class InputFieldView extends DividerLayout{
 
     private final TextView mLabel;
     private final EditText mInput;
     private final ImageView mIcon;
 
-    private final View mTopDivider;
-    private final View mBottomDivider;
-    private final View mDivider;
+//    private final View mTopDivider;
+//    private final View mBottomDivider;
+//    private final View mDivider;
 
     public InputFieldView(Context context, AttributeSet attrs) {
         super(context, attrs);
 
-        final View realView = View.inflate(context, R.layout.ios_input_field, null);
-        addView(realView);
+        View.inflate(context, R.layout.ios_input_field, this);
 
-        mIcon = ViewFinder.find(R.id.ios_icon, realView);
-        mLabel = ViewFinder.find(R.id.ios_label, realView);
-        mInput = ViewFinder.find(R.id.ios_input, realView);
-
-        mTopDivider = realView.findViewById(R.id.ios_top_divider);
-        mBottomDivider = realView.findViewById(R.id.ios_bottom_divider);
-        mDivider = realView.findViewById(R.id.ios_divider);
+        mIcon = ViewFinder.find(R.id.ios_icon, this);
+        mLabel = ViewFinder.find(R.id.ios_label, this);
+        mInput = ViewFinder.find(R.id.ios_input, this);
+        findDividers();
 
         final TypedArray myAttrs = context.obtainStyledAttributes(attrs, R.styleable.iOSInputField);
-
-        initBounds(attrs);
-
+        configDividers(attrs);
         // 配置 Label
         final String label = myAttrs.getString(R.styleable.iOSInputField_inputLabel);
         if (!TextUtils.isEmpty(label)){
@@ -79,6 +73,32 @@ public class InputFieldView extends FrameLayout{
         mInput.setEnabled(enabled);
 
         myAttrs.recycle();
+
+        innerActions();
+    }
+
+    @Override
+    public boolean isInEditMode() {
+        return true;
+    }
+
+    /**
+     * 获取输入框
+     * @return EditText
+     */
+    public EditText getEditText(){
+        return mInput;
+    }
+
+    /**
+     * 获取输入内容
+     * @return 输入内容
+     */
+    public String getInputValue(){
+        return mInput.getText().toString();
+    }
+
+    private void innerActions(){
 
         if (TextUtils.isEmpty(mInput.getText())){
             mIcon.setVisibility(INVISIBLE);
@@ -123,41 +143,6 @@ public class InputFieldView extends FrameLayout{
                 }
             }
         });
-
     }
 
-    @Override
-    public boolean isInEditMode() {
-        return true;
-    }
-
-    /**
-     * 获取输入框
-     * @return EditText
-     */
-    public EditText getEditText(){
-        return mInput;
-    }
-
-    /**
-     * 获取输入内容
-     * @return 输入内容
-     */
-    public String getInputValue(){
-        return mInput.getText().toString();
-    }
-
-    private void initBounds(final AttributeSet attrs){
-        final TypedArray myAttrs = getContext().obtainStyledAttributes(attrs, R.styleable.iOSCell);
-        final boolean isFirstCell = myAttrs.getBoolean(R.styleable.iOSCell_first, false);
-        if (isFirstCell){
-            mTopDivider.setVisibility(VISIBLE);
-        }
-
-        final boolean isLastCell = myAttrs.getBoolean(R.styleable.iOSCell_last, false);
-        if (isLastCell){
-            mBottomDivider.setVisibility(VISIBLE);
-            mDivider.setVisibility(GONE);
-        }
-    }
 }

@@ -17,32 +17,22 @@ import com.github.yoojia.fast.R;
  * @version version 2015-04-15
  * @since   1.0
  */
-public class TextFieldView extends FrameLayout{
+public class TextFieldView extends DividerLayout {
 
     private final TextView mLabel;
     private final TextView mText;
 
-    private final View mTopDivider;
-    private final View mBottomDivider;
-    private final View mDivider;
-
     public TextFieldView(Context context, AttributeSet attrs) {
         super(context, attrs);
 
-        final View realView = View.inflate(context, R.layout.ios_text_field, null);
-        addView(realView);
+        View.inflate(context, R.layout.ios_text_field, this);
 
-        mLabel = ViewFinder.find(R.id.ios_label, realView);
-        mText = ViewFinder.find(R.id.ios_input, realView);
-
-        mTopDivider = realView.findViewById(R.id.ios_top_divider);
-        mBottomDivider = realView.findViewById(R.id.ios_bottom_divider);
-        mDivider = realView.findViewById(R.id.ios_divider);
+        mLabel = ViewFinder.find(R.id.ios_label, this);
+        mText = ViewFinder.find(R.id.ios_input, this);
+        findDividers();
 
         final TypedArray myAttrs = context.obtainStyledAttributes(attrs, R.styleable.iOSTextField);
-
-        initBounds(attrs);
-
+        configDividers(attrs);
         // 配置 Label
         final String label = myAttrs.getString(R.styleable.iOSTextField_textLabel);
         if (!TextUtils.isEmpty(label)){
@@ -80,17 +70,4 @@ public class TextFieldView extends FrameLayout{
         return mText.getText().toString();
     }
 
-    private void initBounds(final AttributeSet attrs){
-        final TypedArray myAttrs = getContext().obtainStyledAttributes(attrs, R.styleable.iOSCell);
-        final boolean isFirstCell = myAttrs.getBoolean(R.styleable.iOSCell_first, false);
-        if (isFirstCell){
-            mTopDivider.setVisibility(VISIBLE);
-        }
-
-        final boolean isLastCell = myAttrs.getBoolean(R.styleable.iOSCell_last, false);
-        if (isLastCell){
-            mBottomDivider.setVisibility(VISIBLE);
-            mDivider.setVisibility(GONE);
-        }
-    }
 }
