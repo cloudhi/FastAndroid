@@ -73,8 +73,6 @@ public class TableCellStaticView extends FrameLayout {
             final String value = myAttrs.getString(R.styleable.iOSTableStaticCell_cell_value);
             if (!TextUtils.isEmpty(value)){
                 mValue.setText(value);
-            }else{
-                mValue.setVisibility(GONE);
             }
         }
 
@@ -89,6 +87,19 @@ public class TableCellStaticView extends FrameLayout {
     @Override
     public void setOnClickListener(OnClickListener l) {
         mActionHandler.setOnClickListener(l);
+    }
+
+    @Override
+    public boolean isInEditMode() {
+        return true;
+    }
+
+    public void setText(CharSequence text){
+        mValue.setText(text);
+    }
+
+    public void setText(int textResId){
+        mValue.setText(textResId);
     }
 
     private void initBounds(final AttributeSet attrs){

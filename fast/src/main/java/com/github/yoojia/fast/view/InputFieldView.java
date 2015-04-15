@@ -3,6 +3,7 @@ package com.github.yoojia.fast.view;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.text.Editable;
+import android.text.InputFilter;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
@@ -49,27 +50,35 @@ public class InputFieldView extends FrameLayout{
 
         initBounds(attrs);
 
-        final int labelResId = myAttrs.getResourceId(R.styleable.iOSInputField_input_label, 0);
-        if (labelResId != 0){
-            mLabel.setText(labelResId);
+        // 配置 Label
+        final String label = myAttrs.getString(R.styleable.iOSInputField_inputLabel);
+        if (!TextUtils.isEmpty(label)){
+            mLabel.setText(label);
         }else{
-            final String label = myAttrs.getString(R.styleable.iOSInputField_input_label);
-            if (!TextUtils.isEmpty(label)){
-                mLabel.setText(label);
-            }else{
-                mLabel.setVisibility(GONE);
-            }
+            mLabel.setVisibility(GONE);
         }
 
-        final int hintResId = myAttrs.getResourceId(R.styleable.iOSInputField_input_hint, 0);
-        if (labelResId != 0){
-            mInput.setHint(hintResId);
-        }else{
-            final String hint = myAttrs.getString(R.styleable.iOSInputField_input_hint);
-            if (!TextUtils.isEmpty(hint)){
-                mInput.setHint(hint);
-            }
+        // 输入框的配置
+        // 1. Input type
+        final int inputType = myAttrs.getInt(R.styleable.iOSInputField_android_inputType, -108);
+        if(inputType != -108) mInput.setInputType(inputType);
+        // 2. hint
+        final String hint = myAttrs.getString(R.styleable.iOSInputField_android_hint);
+        mInput.setHint(hint);
+        // 3. Max length
+        final int inputMax = myAttrs.getInt(R.styleable.iOSInputField_android_maxLength, -1);
+        if(inputMax != -1){
+            final InputFilter filter = new InputFilter.LengthFilter(inputMax);
+            mInput.setFilters(new InputFilter[]{filter});
         }
+        // 4. Text
+        final String text = myAttrs.getString(R.styleable.iOSInputField_android_text);
+        mInput.setText(text);
+        // 5. editable
+        final boolean enabled = myAttrs.getBoolean(R.styleable.iOSInputField_android_enabled, true);
+        mInput.setEnabled(enabled);
+
+        myAttrs.recycle();
 
         if (TextUtils.isEmpty(mInput.getText())){
             mIcon.setVisibility(INVISIBLE);
@@ -104,14 +113,38 @@ public class InputFieldView extends FrameLayout{
             }
         });
 
+        mInput.setOnFocusChangeListener(new OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (hasFocus && !TextUtils.isEmpty(mInput.getText())){
+                    mIcon.setVisibility(VISIBLE);
+                }else{
+                    mIcon.setVisibility(INVISIBLE);
+                }
+            }
+        });
+
+    }
+
+    @Override
+    public boolean isInEditMode() {
+        return true;
     }
 
     /**
      * 获取输入框
      * @return EditText
      */
-    public EditText getInput(){
+    public EditText getEditText(){
         return mInput;
+    }
+
+    /**
+     * 获取输入内容
+     * @return 输入内容
+     */
+    public String getInputValue(){
+        return mInput.getText().toString();
     }
 
     private void initBounds(final AttributeSet attrs){

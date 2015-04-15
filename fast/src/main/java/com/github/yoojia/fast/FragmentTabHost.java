@@ -8,6 +8,7 @@ import android.os.Parcelable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
@@ -320,12 +321,18 @@ public class FragmentTabHost extends TabHost implements TabHost.OnTabChangeListe
             if (newTab.fragment == null) {
                 newTab.fragment = Fragment.instantiate(mContext, newTab.clss.getName(), newTab.args);
                 ft.add(mContainerId, newTab.fragment, newTab.tag);
-            } else {
-                //ft.attach(newTab.fragment);
-                ft.show(newTab.fragment);
             }
+            ft.show(newTab.fragment);
             mLastTab = newTab;
         }
         return ft;
+    }
+
+    public Fragment findFragmentByTabId(String tabId){
+        if (TextUtils.isEmpty(tabId)) throw new IllegalArgumentException("TabId cannot be empty!");
+        for (TabInfo i : mTabs){
+            if (tabId.equals(i.tag)) return i.fragment;
+        }
+        return null;
     }
 }

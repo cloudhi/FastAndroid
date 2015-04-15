@@ -30,12 +30,15 @@
 
     <style name="iOSTableCell.Value" parent="iOSTableCell.Name">
         <item name="android:textColor">@color/iOSTableCellText.Disabled</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_marginRight">10dp</item>
+        <item name="android:gravity">right</item>
     </style>
 
     <declare-styleable name="iOSTableStaticCell">
-        <attr name="cell_icon" format="integer" />
-        <attr name="cell_label" format="string" />
-        <attr name="cell_value" format="string" />
+        <attr name="cell_icon" format="reference" />
+        <attr name="cell_label" format="string|reference" />
+        <attr name="cell_value" format="string|reference" />
         <attr name="cell_disabled_next" format="boolean" />
     </declare-styleable>
 

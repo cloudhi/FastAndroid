@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="iOSNavBackground">#29A0DC</color>
+    <color name="iOSNavTitle">#FEFEFE</color>
+
+    <style name="iOSAppTheme" parent="android:Theme.Holo.Light.DarkActionBar">
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:actionBarStyle">@style/CustomActionBar</item>
+    </style>
+
+    <style name="CustomActionBar" parent="@android:style/Widget.Holo.Light.ActionBar">
+        <item name="android:background">@color/iOSNavBackground</item>
+    </style>
+
+    <style name="iOSNavMeta">
+        <item name="android:layout_centerVertical">true</item>
+    </style>
+
+    <style name="iOSNavMeta.Button" parent="iOSNavMeta">
+        <item name="android:layout_width">44dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="iOSNavMeta.Button.Text" parent="iOSNavMeta.Button">
+        <item name="android:layout_width">50dp</item>
+    </style>
+
+</resources>

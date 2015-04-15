@@ -2,7 +2,7 @@
 <resources>
 
     <color name="iOSInputText.Normal">#252525</color>
-    <color name="iOSInputText.Hint">#585858</color>
+    <color name="iOSInputText.Hint">#B8B8B8</color>
 
     <style name="iOSInputField" parent="iOSCell">
         <item name="android:background">@android:color/white</item>
@@ -19,8 +19,17 @@
     </style>
 
     <declare-styleable name="iOSInputField">
-        <attr name="input_label" format="string" />
-        <attr name="input_hint" format="string" />
+        <attr name="inputLabel" format="string|reference" />
+        <attr name="android:text"/>
+        <attr name="android:hint"/>
+        <attr name="android:inputType" />
+        <attr name="android:maxLength" />
+        <attr name="android:enabled" />
+    </declare-styleable>
+
+    <declare-styleable name="iOSTextField">
+        <attr name="textLabel" format="string|reference" />
+        <attr name="android:text"/>
     </declare-styleable>
 
 </resources>

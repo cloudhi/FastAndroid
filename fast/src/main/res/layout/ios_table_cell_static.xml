@@ -27,7 +27,6 @@
         android:layout_alignParentRight="true"
         android:alpha="0.3"
         android:layout_marginRight="10dp"
-        android:layout_marginLeft="10dp"
         android:clickable="false"
         android:layout_width="14dp"
         android:layout_height="14dp"/>
@@ -36,9 +35,7 @@
         android:id="@+id/ios_value"
         style="@style/iOSTableCell.Value"
         android:layout_toRightOf="@id/ios_name"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="40dp"
-        android:clickable="false"
+        android:layout_toLeftOf="@id/ios_next"
         />
 
     <View
