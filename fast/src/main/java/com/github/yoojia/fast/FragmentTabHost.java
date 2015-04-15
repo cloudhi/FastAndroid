@@ -321,8 +321,10 @@ public class FragmentTabHost extends TabHost implements TabHost.OnTabChangeListe
             if (newTab.fragment == null) {
                 newTab.fragment = Fragment.instantiate(mContext, newTab.clss.getName(), newTab.args);
                 ft.add(mContainerId, newTab.fragment, newTab.tag);
+            }else{
+                //ft.attach(mLastTab.fragment);
+                ft.show(newTab.fragment);
             }
-            ft.show(newTab.fragment);
             mLastTab = newTab;
         }
         return ft;

@@ -8,17 +8,17 @@
               android:layout_height="match_parent">
 
     <com.github.yoojia.fast.view.InputFieldView
-        ios:input_label="Username"
+        ios:inputLabel="Username"
         ios:first="true"
         style="@style/iOSInputField"/>
 
 
     <com.github.yoojia.fast.view.InputFieldView
-        ios:input_label="Mobile"
+        ios:inputLabel="Mobile"
         style="@style/iOSInputField"/>
 
     <com.github.yoojia.fast.view.InputFieldView
-        ios:input_label="Password"
+        ios:inputLabel="Password"
         ios:last="true"
         style="@style/iOSInputField"/>
 
