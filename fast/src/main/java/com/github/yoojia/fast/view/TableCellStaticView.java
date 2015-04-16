@@ -41,34 +41,19 @@ public class TableCellStaticView extends DividerLayout {
 
         final TypedArray myAttrs = context.obtainStyledAttributes(attrs, R.styleable.iOSTableStaticCell);
         configDividers(attrs);
+        // 1. Icon
         final int iconResId = myAttrs.getResourceId(R.styleable.iOSTableStaticCell_cell_icon, 0);
         if (iconResId != 0){
             mIcon.setImageResource(iconResId);
         }else{
             mIcon.setVisibility(GONE);
         }
-
-        final int labelResId = myAttrs.getResourceId(R.styleable.iOSTableStaticCell_cell_label, 0);
-        if (labelResId != 0){
-            mLabel.setText(labelResId);
-        }else{
-            final String label = myAttrs.getString(R.styleable.iOSTableStaticCell_cell_label);
-            if (!TextUtils.isEmpty(label)){
-                mLabel.setText(label);
-            }else{
-                mLabel.setVisibility(GONE);
-            }
-        }
-
-        final int valueResId = myAttrs.getResourceId(R.styleable.iOSTableStaticCell_cell_value, 0);
-        if (valueResId != 0){
-            mValue.setText(valueResId);
-        }else{
-            final String value = myAttrs.getString(R.styleable.iOSTableStaticCell_cell_value);
-            if (!TextUtils.isEmpty(value)){
-                mValue.setText(value);
-            }
-        }
+        // 2. Label
+        final String label = myAttrs.getString(R.styleable.iOSTableStaticCell_cell_label);
+        mLabel.setText(label);
+        // 3. Value
+        final String value = myAttrs.getString(R.styleable.iOSTableStaticCell_cell_value);
+        mValue.setText(value);
 
         final boolean disabledNext = myAttrs.getBoolean(R.styleable.iOSTableStaticCell_cell_disabled_next, false);
         if (disabledNext){

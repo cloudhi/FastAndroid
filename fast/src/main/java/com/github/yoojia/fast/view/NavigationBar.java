@@ -26,10 +26,10 @@ public class NavigationBar{
     private final ImageView mLeftImageButton;
     private final ImageView mRightImageButton;
     private final Button mRightTextButton;
-    private final WeakReference<FragmentActivity> mActivity;
+    private final FragmentActivity mActivity;
 
     public NavigationBar(FragmentActivity activity){
-        mActivity = new WeakReference<>(activity);
+        mActivity = activity;
         mActionBar = activity.getActionBar();
         assert mActionBar != null;
         mActionBar.setDisplayOptions(android.app.ActionBar.DISPLAY_SHOW_CUSTOM);
@@ -49,7 +49,7 @@ public class NavigationBar{
         mLeftImageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mActivity.get().finish();
+                mActivity.finish();
             }
         });
     }
@@ -60,7 +60,7 @@ public class NavigationBar{
      */
     public void setTitle(int resId){
         mTitle.setText(resId);
-        mActivity.get().setTitle(resId);
+        mActivity.setTitle(resId);
     }
 
     /**
@@ -103,19 +103,22 @@ public class NavigationBar{
     }
 
     /**
-     * 屏幕右文字按钮
+     * 屏蔽右文字按钮
      */
     public void disableRightTextButton(){
         mRightTextButton.setVisibility(View.GONE);
     }
 
+    /**
+     * 屏蔽右按钮
+     */
     public void disableRightButton(){
         disableRightImageButton();
         disableRightTextButton();
     }
 
     private void checkBackEnable(){
-        if (mActivity.get().isTaskRoot()){
+        if (mActivity.isTaskRoot()){
             mLeftImageButton.setVisibility(View.GONE);
         }else{
             mLeftImageButton.setVisibility(View.VISIBLE);
