@@ -4,7 +4,7 @@
                 android:layout_height="match_parent"
                 tools:context="com.github.yoojia.fast.app.TabHostActivity">
 
-    <com.github.yoojia.fast.FragmentTabHost
+    <android.support.v4.app.FragmentTabHost
         android:id="@android:id/tabhost"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -24,12 +24,13 @@
                 android:layout_height="match_parent"/>
 
             <View style="@style/iOSDivider"
+                  android:background="@color/iOSTabDivider"
                   android:layout_above="@android:id/tabs"
                 />
 
         </RelativeLayout>
 
-    </com.github.yoojia.fast.FragmentTabHost>
+    </android.support.v4.app.FragmentTabHost>
 
 
 </RelativeLayout>

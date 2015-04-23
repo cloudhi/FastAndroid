@@ -25,7 +25,7 @@ public class FragmentTabSpec {
      * @param labelResId 名称资源ID
      * @return TabSpec
      */
-    public static TabHost.TabSpec create(FragmentTabHost tabHost, String key, int iconResId, int labelResId){
+    public static TabHost.TabSpec create(TabHost tabHost, String key, int iconResId, int labelResId){
         final View view = createItem(tabHost.getContext(), iconResId, labelResId);
         return tabHost.newTabSpec(key).setIndicator(view);
     }

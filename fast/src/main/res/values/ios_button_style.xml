@@ -3,29 +3,30 @@
 
     <dimen name="iOSButtonRadius">5px</dimen>
 
-    <color name="iOSButtonBlue.Normal">#007AFF</color>
-    <color name="iOSButtonBlue.Selected">#147EFB</color>
+    <color name="iOSButton.Blue.Normal">#007AFF</color>
+    <color name="iOSButton.Blue.Selected">#104AAB</color>
 
-    <color name="iOSButtonGreen.Normal">#4CD964</color>
-    <color name="iOSButtonGreen.Selected">#53D769</color>
+    <color name="iOSButton.Green.Normal">#39C179</color>
+    <color name="iOSButton.Green.Selected">#23B166</color>
 
-    <color name="iOSButtonRed.Normal">#DD524D</color>
-    <color name="iOSButtonRed.Selected">#DB5357</color>
+    <color name="iOSButton.Red.Normal">#DD524D</color>
+    <color name="iOSButton.Red.Selected">#DB4557</color>
 
-    <color name="iOSButtonGray.Normal">#CCCCCC</color>
-    <color name="iOSButtonGray.Selected">#BBBBBB</color>
+    <color name="iOSButton.Gray.Normal">#CCCCCC</color>
+    <color name="iOSButton.Gray.Selected">#ABABAB</color>
 
-    <color name="iOSButtonText.Normal">#252525</color>
+    <color name="iOSButton.Text.Outlined">#252525</color>
+    <color name="iOSButton.Text">#FFFFFF</color>
 
     <style name="iOSButton">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textColor">@color/iOSButton.Text</item>
         <item name="android:textSize">22sp</item>
     </style>
 
     <style name="iOSButton.Outlined" parent="iOSButton">
-        <item name="android:textColor">@color/iOSButtonText.Normal</item>
+        <item name="android:textColor">@color/iOSButton.Text.Outlined</item>
     </style>
 
     <style name="iOSButton.Blue" parent="iOSButton">

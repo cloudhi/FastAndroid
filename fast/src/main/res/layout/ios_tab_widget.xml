@@ -7,16 +7,17 @@
     <ImageView
         android:id="@+id/icon"
         android:layout_gravity="center_horizontal"
-        android:layout_width="28dp"
-        android:layout_height="28dp"/>
+        android:layout_marginTop="3dp"
+        android:layout_width="24dp"
+        android:layout_height="24dp"/>
 
     <TextView
         android:id="@+id/label"
         android:layout_gravity="center_horizontal"
         android:textColor="@color/ios_tab_text"
-        android:textSize="14sp"
+        android:textSize="12sp"
         android:singleLine="true"
-        android:layout_marginTop="2dp"
+        android:layout_marginTop="3dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 

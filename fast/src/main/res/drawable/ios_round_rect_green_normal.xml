@@ -3,7 +3,7 @@
 
     <corners android:radius="@dimen/iOSButtonRadius"/>
 
-    <gradient android:startColor="@color/iOSButtonGreen.Normal"
-              android:endColor="@color/iOSButtonGreen.Normal"/>
+    <gradient android:startColor="@color/iOSButton.Green.Normal"
+              android:endColor="@color/iOSButton.Green.Normal"/>
 
 </shape>

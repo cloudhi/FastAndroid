@@ -7,6 +7,7 @@ import android.text.InputFilter;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.FrameLayout;
@@ -28,20 +29,14 @@ public class InputFieldView extends DividerLayout{
     private final EditText mInput;
     private final ImageView mIcon;
 
-//    private final View mTopDivider;
-//    private final View mBottomDivider;
-//    private final View mDivider;
-
     public InputFieldView(Context context, AttributeSet attrs) {
         super(context, attrs);
-
         View.inflate(context, R.layout.ios_input_field, this);
-
         mIcon = ViewFinder.find(R.id.ios_icon, this);
         mLabel = ViewFinder.find(R.id.ios_label, this);
         mInput = ViewFinder.find(R.id.ios_input, this);
         findDividers();
-
+        mIcon.setVisibility(GONE);
         final TypedArray myAttrs = context.obtainStyledAttributes(attrs, R.styleable.iOSInputField);
         configDividers(attrs);
         // 配置 Label
@@ -51,7 +46,6 @@ public class InputFieldView extends DividerLayout{
         }else{
             mLabel.setVisibility(GONE);
         }
-
         // 输入框的配置
         // 1. Input type
         final int inputType = myAttrs.getInt(R.styleable.iOSInputField_android_inputType, -108);
@@ -71,10 +65,21 @@ public class InputFieldView extends DividerLayout{
         // 5. editable
         final boolean enabled = myAttrs.getBoolean(R.styleable.iOSInputField_android_enabled, true);
         mInput.setEnabled(enabled);
+        // 6. Gravity
+        final int gravity = myAttrs.getInt(R.styleable.iOSInputField_inputGravity, 0);
+        if (gravity == 0) mInput.setGravity(Gravity.LEFT);
+        else if (gravity == 1) mInput.setGravity(Gravity.RIGHT);
 
         myAttrs.recycle();
-
         innerActions();
+    }
+
+    /**
+     * 设置文本内容
+     * @param valueText 文本内容
+     */
+    public void setText(CharSequence valueText){
+        mInput.setText(valueText);
     }
 
     @Override
@@ -91,6 +96,14 @@ public class InputFieldView extends DividerLayout{
     }
 
     /**
+     * 是否为空内容
+     * @return 是否为空
+     */
+    public boolean isEmpty(){
+        return mInput.getText().length() == 0;
+    }
+
+    /**
      * 获取输入内容
      * @return 输入内容
      */
@@ -99,9 +112,6 @@ public class InputFieldView extends DividerLayout{
     }
 
     private void innerActions(){
-        if (TextUtils.isEmpty(mInput.getText())){
-            mIcon.setVisibility(INVISIBLE);
-        }
         mIcon.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -112,12 +122,10 @@ public class InputFieldView extends DividerLayout{
         mInput.addTextChangedListener(new TextWatcher() {
             @Override
             public void afterTextChanged(Editable s) {
-                if (TextUtils.isEmpty(s) && mIcon.isShown()){
+                if (TextUtils.isEmpty(s)){
                     mIcon.setVisibility(INVISIBLE);
-                    mIcon.setEnabled(false);
                 }else{
                     mIcon.setVisibility(VISIBLE);
-                    mIcon.setEnabled(true);
                 }
             }
             @Override
@@ -136,6 +144,10 @@ public class InputFieldView extends DividerLayout{
                 }
             }
         });
+        //
+        if (TextUtils.isEmpty(mInput.getText())){
+            mIcon.setVisibility(INVISIBLE);
+        }
     }
 
 }

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="horizontal"
+              android:background="@drawable/ios_input_changer"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/ios_reduces"
+        android:src="@mipmap/ios_input_changer_subtract"
+        style="@style/iOSInputChanger.Button"
+        />
+
+    <View
+        android:background="@color/iOSBorder"
+        android:layout_width="1px"
+        android:layout_height="match_parent"/>
+
+    <EditText
+        android:id="@+id/ios_value"
+        android:inputType="number"
+        android:background="@android:color/transparent"
+        android:singleLine="true"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:gravity="center"
+        android:text="0"
+        android:layout_height="match_parent"/>
+
+    <View
+        android:background="@color/iOSBorder"
+        android:layout_width="1px"
+        android:layout_height="match_parent"/>
+
+    <ImageView
+        android:id="@+id/ios_increase"
+        android:src="@mipmap/ios_input_changer_plus"
+        style="@style/iOSInputChanger.Button"/>
+
+</LinearLayout>

@@ -4,6 +4,9 @@
     <color name="iOSInputText.Normal">#252525</color>
     <color name="iOSInputText.Hint">#B8B8B8</color>
 
+    <dimen name="iOSInputField.MinWidth">80dp</dimen>
+    <dimen name="iOSInputChanger.Height">30dp</dimen>
+
     <style name="iOSInputField" parent="iOSCell">
         <item name="android:background">@android:color/white</item>
         <item name="android:layout_width">match_parent</item>
@@ -16,10 +19,16 @@
 
     <style name="iOSInputField.Input" parent="iOSCell.Name">
         <item name="android:textColorHint">@color/iOSInputText.Hint</item>
+        <item name="android:paddingTop">6dp</item>
+        <item name="android:paddingBottom">6dp</item>
     </style>
 
     <declare-styleable name="iOSInputField">
         <attr name="inputLabel" format="string|reference" />
+        <attr name="inputGravity" format="enum">
+            <enum name="left" value="0"/>
+            <enum name="right" value="1"/>
+        </attr>
         <attr name="android:text"/>
         <attr name="android:hint"/>
         <attr name="android:inputType" />
@@ -31,5 +40,15 @@
         <attr name="textLabel" format="string|reference" />
         <attr name="android:text"/>
     </declare-styleable>
+
+    <style name="iOSInputChanger"></style>
+    <style name="iOSInputChanger.Button">
+        <item name="android:padding">5dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_marginBottom">4dp</item>
+        <item name="android:layout_marginTop">4dp</item>
+    </style>
 
 </resources>

@@ -2,16 +2,19 @@
 <resources>
 
     <color name="iOSTabBackground">#F9F9F9</color>
+    <color name="iOSTabDivider">#EEEEEE</color>
     <color name="iOSTabText.Normal">#252525</color>
     <color name="iOSTabText.Selected">#29A0DC</color>
+
+    <dimen name="iOSTab.Height">50dp</dimen>
 
     <style name="iOSTabWidget">
         <item name="android:background">@color/iOSTabBackground</item>
         <item name="android:layout_alignParentBottom">true</item>
         <item name="android:showDividers">none</item>
-        <item name="android:padding">4dp</item>
+        <item name="android:paddingTop">4dp</item>
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_height">@dimen/iOSTab.Height</item>
     </style>
 
     <style name="iOSTabTextNormal">

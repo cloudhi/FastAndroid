@@ -5,7 +5,6 @@
     <color name="iOSTableCellNormal">#FFFFFF</color>
     <color name="iOSTableCellSelected">#E5E5E5</color>
 
-    <color name="iOSDivider">#DCDCDC</color>
     <color name="iOSTableCellText.Normal">#323232</color>
     <color name="iOSTableCellText.Disabled">#6E6E6E</color>
 

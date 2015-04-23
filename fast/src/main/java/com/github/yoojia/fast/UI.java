@@ -7,7 +7,7 @@ import android.content.Intent;
 /**
  * 界面跳转处理类
  *
- * @author  陈永佳 (chenyongjia@parkingwang.com)
+ * @author  yoojia.chen@gmail.com
  * @version version 2015-04-14
  * @since   1.0
  */

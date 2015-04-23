@@ -5,12 +5,10 @@ import android.app.ActionBar;
 import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.github.yoojia.fast.R;
-
-import java.lang.ref.WeakReference;
 
 /**
  * Navigation view
@@ -23,10 +21,13 @@ public class NavigationBar{
 
     private final ActionBar mActionBar;
     private final TextView mTitle;
-    private final ImageView mLeftImageButton;
-    private final ImageView mRightImageButton;
+    private final ImageButton mLeftImageButton;
+    private final ImageButton mRightImageButton;
     private final Button mRightTextButton;
+    private final View mProgressBar;
     private final FragmentActivity mActivity;
+
+    private boolean mIsRootActivity = false;
 
     public NavigationBar(FragmentActivity activity){
         mActivity = activity;
@@ -41,9 +42,10 @@ public class NavigationBar{
         mLeftImageButton = ViewFinder.find(R.id.nav_left_image, contentView);
         mRightImageButton = ViewFinder.find(R.id.nav_right_image, contentView);
         mRightTextButton = ViewFinder.find(R.id.nav_right_text, contentView);
+        mProgressBar = ViewFinder.find(R.id.progress, contentView);
         mTitle.setText(activity.getTitle());
 
-        checkBackEnable();
+        updateBackButtonState();
 
         // 默认返回处理
         mLeftImageButton.setOnClickListener(new View.OnClickListener() {
@@ -61,6 +63,14 @@ public class NavigationBar{
     public void setTitle(int resId){
         mTitle.setText(resId);
         mActivity.setTitle(resId);
+    }
+
+    /**
+     * 是否显示内置进度条
+     * @param show 是否显示
+     */
+    public void showInnerProgress(boolean show){
+        mProgressBar.setVisibility(show? View.VISIBLE: View.GONE);
     }
 
     /**
@@ -112,13 +122,23 @@ public class NavigationBar{
     /**
      * 屏蔽右按钮
      */
-    public void disableRightButton(){
+    public void disableRightButtons(){
         disableRightImageButton();
         disableRightTextButton();
     }
 
-    private void checkBackEnable(){
-        if (mActivity.isTaskRoot()){
+    /**
+     * 设置当前Activity是否为根Activity。
+     * 根Activity表现为导航条没有返回按钮。
+     * @param isRootActivity 是否为根Activity
+     */
+    public void setIsRootActivity(boolean isRootActivity){
+        mIsRootActivity = isRootActivity;
+        updateBackButtonState();
+    }
+
+    private void updateBackButtonState(){
+        if (mIsRootActivity || mActivity.isTaskRoot()){
             mLeftImageButton.setVisibility(View.GONE);
         }else{
             mLeftImageButton.setVisibility(View.VISIBLE);
