@@ -71,11 +71,35 @@ public class TableCellStaticView extends DividerLayout {
         return true;
     }
 
+    /**
+     * 设置输入框文本内容
+     * @param text 文本内容
+     */
     public void setText(CharSequence text){
         mValue.setText(text);
     }
 
-    public void setText(int textResId){
-        mValue.setText(textResId);
+    /**
+     * 设置输入框文本内容
+     * @param text 文本内容
+     */
+    public void setText(int text){
+        mValue.setText(text);
+    }
+
+    /**
+     * 设置Label显示文本
+     * @param label 显示文本
+     */
+    public void setLabel(CharSequence label){
+        mLabel.setText(label);
+    }
+
+    /**
+     * 设置Label显示文本
+     * @param label 显示文本
+     */
+    public void setLabel(int label){
+        mLabel.setText(label);
     }
 }

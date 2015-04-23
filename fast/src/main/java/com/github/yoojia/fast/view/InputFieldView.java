@@ -75,11 +75,35 @@ public class InputFieldView extends DividerLayout{
     }
 
     /**
-     * 设置文本内容
+     * 设置输入框文本内容
      * @param valueText 文本内容
      */
     public void setText(CharSequence valueText){
         mInput.setText(valueText);
+    }
+
+    /**
+     * 设置输入框文本内容
+     * @param value 文本内容
+     */
+    public void setText(int value){
+        mInput.setText(value);
+    }
+
+    /**
+     * 设置Label显示文本
+     * @param label 显示文本
+     */
+    public void setLabel(CharSequence label){
+        mLabel.setText(label);
+    }
+
+    /**
+     * 设置Label显示文本
+     * @param label 显示文本
+     */
+    public void setLabel(int label){
+        mLabel.setText(label);
     }
 
     @Override

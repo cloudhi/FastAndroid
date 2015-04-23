@@ -76,8 +76,20 @@ public class InputChangerView extends FrameLayout{
         });
     }
 
-    public void setText(CharSequence value){
-        mValue.setText(value);
+    /**
+     * 设置输入框文本内容
+     * @param text 文本内容
+     */
+    public void setText(CharSequence text){
+        mValue.setText(text);
+    }
+
+    /**
+     * 设置输入框文本内容
+     * @param text 文本内容
+     */
+    public void setText(int text){
+        mValue.setText(text);
     }
 
     public String getInputValue(){

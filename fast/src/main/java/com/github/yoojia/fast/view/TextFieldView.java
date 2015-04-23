@@ -5,7 +5,6 @@ import android.content.res.TypedArray;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
-import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.github.yoojia.fast.R;
@@ -20,7 +19,7 @@ import com.github.yoojia.fast.R;
 public class TextFieldView extends DividerLayout {
 
     private final TextView mLabel;
-    private final TextView mText;
+    private final TextView mValue;
 
     public TextFieldView(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -28,7 +27,7 @@ public class TextFieldView extends DividerLayout {
         View.inflate(context, R.layout.ios_text_field, this);
 
         mLabel = ViewFinder.find(R.id.ios_label, this);
-        mText = ViewFinder.find(R.id.ios_input, this);
+        mValue = ViewFinder.find(R.id.ios_input, this);
         findDividers();
 
         final TypedArray myAttrs = context.obtainStyledAttributes(attrs, R.styleable.iOSTextField);
@@ -43,7 +42,7 @@ public class TextFieldView extends DividerLayout {
 
         // 4. Text
         final String text = myAttrs.getString(R.styleable.iOSTextField_android_text);
-        mText.setText(text);
+        mValue.setText(text);
 
         myAttrs.recycle();
 
@@ -59,7 +58,7 @@ public class TextFieldView extends DividerLayout {
      * @return EditText
      */
     public TextView getTextView(){
-        return mText;
+        return mValue;
     }
 
     /**
@@ -67,7 +66,38 @@ public class TextFieldView extends DividerLayout {
      * @return 输入内容
      */
     public String getInputValue(){
-        return mText.getText().toString();
+        return mValue.getText().toString();
     }
 
+    /**
+     * 设置输入框文本内容
+     * @param text 文本内容
+     */
+    public void setText(CharSequence text){
+        mValue.setText(text);
+    }
+
+    /**
+     * 设置输入框文本内容
+     * @param text 文本内容
+     */
+    public void setText(int text){
+        mValue.setText(text);
+    }
+
+    /**
+     * 设置Label显示文本
+     * @param label 显示文本
+     */
+    public void setLabel(CharSequence label){
+        mLabel.setText(label);
+    }
+
+    /**
+     * 设置Label显示文本
+     * @param label 显示文本
+     */
+    public void setLabel(int label){
+        mLabel.setText(label);
+    }
 }
