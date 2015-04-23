@@ -8,8 +8,8 @@
                 tools:context="com.github.yoojia.fast.app.TableCellStaticActivity">
 
     <com.github.yoojia.fast.view.TableCellStaticView
-        android:id="@+id/setting"
-        ios:cell_label="Setting"
+        android:id="@+id/profile"
+        ios:cell_label="关于作者"
         ios:cell_icon="@drawable/icon_profile"
         ios:first="true"
         android:layout_width="match_parent"
@@ -17,16 +17,17 @@
         />
 
     <com.github.yoojia.fast.view.TableCellStaticView
-        ios:cell_label="Profile"
-        android:id="@+id/profile"
+        ios:cell_label="其它功能"
+        android:id="@+id/setting"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         />
 
     <com.github.yoojia.fast.view.TableCellStaticView
-        ios:cell_label="About Us"
+        ios:cell_label="Version"
+        ios:cell_value="1.0"
         ios:last="true"
-        android:id="@+id/about"
+        android:id="@+id/version"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         />

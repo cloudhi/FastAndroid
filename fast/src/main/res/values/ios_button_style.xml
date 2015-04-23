@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <dimen name="iOSButtonRadius">5px</dimen>
+    <dimen name="iOSButtonRadius">6px</dimen>
 
     <color name="iOSButton.Blue.Normal">#007AFF</color>
-    <color name="iOSButton.Blue.Selected">#104AAB</color>
+    <color name="iOSButton.Blue.Selected">#004AAB</color>
 
     <color name="iOSButton.Green.Normal">#39C179</color>
     <color name="iOSButton.Green.Selected">#23B166</color>
