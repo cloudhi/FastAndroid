@@ -35,10 +35,10 @@
     </style>
 
     <declare-styleable name="iOSTableStaticCell">
-        <attr name="cell_icon" format="reference" />
-        <attr name="cell_label" format="string|reference" />
-        <attr name="cell_value" format="string|reference" />
-        <attr name="cell_disabled_next" format="boolean" />
+        <attr name="cellIcon" format="reference" />
+        <attr name="cellLabel" format="string|reference" />
+        <attr name="cellValue" format="string|reference" />
+        <attr name="cellDisabledNext" format="boolean" />
     </declare-styleable>
 
 </resources>

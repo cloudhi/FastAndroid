@@ -42,20 +42,20 @@ public class TableCellStaticView extends DividerLayout {
         final TypedArray myAttrs = context.obtainStyledAttributes(attrs, R.styleable.iOSTableStaticCell);
         configDividers(attrs);
         // 1. Icon
-        final int iconResId = myAttrs.getResourceId(R.styleable.iOSTableStaticCell_cell_icon, 0);
+        final int iconResId = myAttrs.getResourceId(R.styleable.iOSTableStaticCell_cellIcon, 0);
         if (iconResId != 0){
             mIcon.setImageResource(iconResId);
         }else{
             mIcon.setVisibility(GONE);
         }
         // 2. Label
-        final String label = myAttrs.getString(R.styleable.iOSTableStaticCell_cell_label);
+        final String label = myAttrs.getString(R.styleable.iOSTableStaticCell_cellLabel);
         mLabel.setText(label);
         // 3. Value
-        final String value = myAttrs.getString(R.styleable.iOSTableStaticCell_cell_value);
+        final String value = myAttrs.getString(R.styleable.iOSTableStaticCell_cellValue);
         mValue.setText(value);
-
-        final boolean disabledNext = myAttrs.getBoolean(R.styleable.iOSTableStaticCell_cell_disabled_next, false);
+        // 4. Next arrow
+        final boolean disabledNext = myAttrs.getBoolean(R.styleable.iOSTableStaticCell_cellDisabledNext, false);
         if (disabledNext){
             mNext.setVisibility(GONE);
         }

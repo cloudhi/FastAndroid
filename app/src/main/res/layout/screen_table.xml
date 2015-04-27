@@ -9,23 +9,23 @@
 
     <com.github.yoojia.fast.view.TableCellStaticView
         android:id="@+id/profile"
-        ios:cell_label="关于作者"
-        ios:cell_icon="@drawable/icon_profile"
+        ios:cellLabel="关于作者"
+        ios:cellIcon="@drawable/icon_profile"
         ios:first="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         />
 
     <com.github.yoojia.fast.view.TableCellStaticView
-        ios:cell_label="其它功能"
+        ios:cellLabel="其它功能"
         android:id="@+id/setting"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         />
 
     <com.github.yoojia.fast.view.TableCellStaticView
-        ios:cell_label="Version"
-        ios:cell_value="1.0"
+        ios:cellLabel="Version"
+        ios:cellValue="1.0"
         ios:last="true"
         android:id="@+id/version"
         android:layout_width="match_parent"
