@@ -41,7 +41,7 @@ public class HttpClient {
     public static void init(String remoteHost, String userAgent, String mediaType){
         REMOTE_HOST = remoteHost;
         USER_AGENT = userAgent;
-        MEDIA_TYPE = MediaType.parse(mediaType);
+        MEDIA_TYPE = TextUtils.isEmpty(mediaType) ? null : MediaType.parse(mediaType);
     }
 
     /**

@@ -14,10 +14,10 @@ import java.io.IOException;
  */
 public abstract class UIThreadCallback implements HttpCallback{
 
-    private final static int MSG_STARTED = -20150430;
-    private final static int MSG_ERROR = -20150429;
-    private final static int MSG_RESPONSE = -20150428;
     private final static int MSG_COMPLETE = -20150427;
+    private final static int MSG_RESPONSE = -20150428;
+    private final static int MSG_ERROR = -20150429;
+    private final static int MSG_STARTED = -20150430;
 
     private final Handler mInnerHandler = new Handler(new Handler.Callback() {
         @Override
