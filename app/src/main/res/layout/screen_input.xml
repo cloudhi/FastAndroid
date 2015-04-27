@@ -7,21 +7,21 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
-    <com.github.yoojia.fast.view.InputFieldView
+    <com.github.yoojia.fast.widget.InputFieldView
         ios:inputLabel="Username"
         ios:first="true"
         android:hint="Your username"
         style="@style/iOSInputField"/>
 
 
-    <com.github.yoojia.fast.view.InputFieldView
+    <com.github.yoojia.fast.widget.InputFieldView
         ios:inputLabel="Mobile"
         android:hint="Your mobile number"
         android:inputType="numberSigned"
         android:maxLength="11"
         style="@style/iOSInputField"/>
 
-    <com.github.yoojia.fast.view.InputFieldView
+    <com.github.yoojia.fast.widget.InputFieldView
         ios:inputLabel="Password"
         android:hint="Your password"
         ios:last="true"

@@ -1,4 +1,4 @@
-package com.github.yoojia.fast.view;
+package com.github.yoojia.fast.widget;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -10,11 +10,11 @@ import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.github.yoojia.fast.R;
+import com.github.yoojia.fast.view.ViewFinder;
 
 /**
  * Input field view
@@ -25,13 +25,13 @@ import com.github.yoojia.fast.R;
  */
 public class InputFieldView extends DividerLayout{
 
-    private final TextView mLabel;
-    private final EditText mInput;
-    private final ImageView mIcon;
+    protected final TextView mLabel;
+    protected final EditText mInput;
+    protected final ImageView mIcon;
 
     public InputFieldView(Context context, AttributeSet attrs) {
         super(context, attrs);
-        View.inflate(context, R.layout.ios_input_field, this);
+        inflate(context, R.layout.ios_input_field, this);
         mIcon = ViewFinder.find(R.id.ios_icon, this);
         mLabel = ViewFinder.find(R.id.ios_label, this);
         mInput = ViewFinder.find(R.id.ios_input, this);

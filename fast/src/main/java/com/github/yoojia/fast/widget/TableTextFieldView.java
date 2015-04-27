@@ -1,36 +1,34 @@
-package com.github.yoojia.fast.view;
+package com.github.yoojia.fast.widget;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.text.TextUtils;
 import android.util.AttributeSet;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.github.yoojia.fast.R;
+import com.github.yoojia.fast.view.ViewFinder;
 
 /**
- * iOS Table static cell view
+ * 可点击的表格型文本框
  * @author  yoojia.chen@gmail.com
  * @version version 2015-04-13
  * @since   1.0
  */
-public class TableCellStaticView extends DividerLayout {
+public class TableTextFieldView extends DividerLayout {
 
-    private final Button mActionHandler;
-    private final ImageView mIcon;
-    private final TextView mLabel;
-    private final TextView mValue;
-    private final View mNext;
+    protected final Button mActionHandler;
+    protected final ImageView mIcon;
+    protected final TextView mLabel;
+    protected final TextView mValue;
+    protected final View mNext;
 
-    public TableCellStaticView(Context context, AttributeSet attrs) {
+    public TableTextFieldView(Context context, AttributeSet attrs) {
         super(context, attrs);
 
-        View.inflate(context, R.layout.ios_table_cell_static, this);
+        inflate(context, R.layout.ios_table_cell_static, this);
 
         mIcon = ViewFinder.find(R.id.ios_icon, this);
         mLabel = ViewFinder.find(R.id.ios_name, this);
@@ -102,4 +100,22 @@ public class TableCellStaticView extends DividerLayout {
     public void setLabel(int label){
         mLabel.setText(label);
     }
+
+    /**
+     * 获取TextView组件
+     * @return TextView
+     */
+    public TextView getTextView(){
+        return mValue;
+    }
+
+    /**
+     * 获取Text内容
+     * @return 文本内容
+     */
+    public String getText(){
+        return mValue.getText().toString();
+    }
+
+
 }

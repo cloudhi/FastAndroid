@@ -1,4 +1,4 @@
-package com.github.yoojia.fast;
+package com.github.yoojia.fast.utils;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;

@@ -7,7 +7,7 @@
                 android:paddingTop="30dp"
                 tools:context="com.github.yoojia.fast.app.TableCellStaticActivity">
 
-    <com.github.yoojia.fast.view.TableCellStaticView
+    <com.github.yoojia.fast.widget.TableTextFieldView
         android:id="@+id/profile"
         ios:cellLabel="关于作者"
         ios:cellIcon="@drawable/icon_profile"
@@ -16,14 +16,14 @@
         android:layout_height="wrap_content"
         />
 
-    <com.github.yoojia.fast.view.TableCellStaticView
+    <com.github.yoojia.fast.widget.TableTextFieldView
         ios:cellLabel="其它功能"
         android:id="@+id/setting"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         />
 
-    <com.github.yoojia.fast.view.TableCellStaticView
+    <com.github.yoojia.fast.widget.TableTextFieldView
         ios:cellLabel="Version"
         ios:cellValue="1.0"
         ios:last="true"

@@ -1,4 +1,4 @@
-package com.github.yoojia.fast.view;
+package com.github.yoojia.fast.widget;
 
 import android.content.Context;
 import android.text.Editable;
@@ -13,6 +13,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import com.github.yoojia.fast.R;
+import com.github.yoojia.fast.view.ViewFinder;
 
 /**
  * Input changer

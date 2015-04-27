@@ -1,5 +1,7 @@
 package com.github.yoojia.fast;
 
+import com.github.yoojia.fast.utils.HashEncryption;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.RobolectricTestRunner;

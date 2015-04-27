@@ -7,10 +7,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.github.yoojia.fast.NiceToast;
-import com.github.yoojia.fast.UI;
+import com.github.yoojia.fast.widget.NiceToast;
+import com.github.yoojia.fast.utils.UI;
 import com.github.yoojia.fast.view.AutoView;
-import com.github.yoojia.fast.view.TableCellStaticView;
+import com.github.yoojia.fast.widget.TableTextFieldView;
 import com.github.yoojia.fast.view.ViewFinder;
 
 /**
@@ -23,13 +23,13 @@ import com.github.yoojia.fast.view.ViewFinder;
 public class TableFragment extends Fragment{
 
     @AutoView(viewId = R.id.profile)
-    private TableCellStaticView mProfile;
+    private TableTextFieldView mProfile;
 
     @AutoView(viewId = R.id.setting)
-    private TableCellStaticView mSetting;
+    private TableTextFieldView mSetting;
 
     @AutoView(viewId = R.id.version)
-    private TableCellStaticView mVersion;
+    private TableTextFieldView mVersion;
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

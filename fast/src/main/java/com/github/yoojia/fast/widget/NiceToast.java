@@ -1,4 +1,4 @@
-package com.github.yoojia.fast;
+package com.github.yoojia.fast.widget;
 
 import android.content.Context;
 import android.view.Gravity;
@@ -6,6 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.github.yoojia.fast.R;
 
 import java.lang.ref.WeakReference;
 

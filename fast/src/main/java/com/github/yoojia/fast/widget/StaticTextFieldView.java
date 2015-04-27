@@ -1,30 +1,29 @@
-package com.github.yoojia.fast.view;
+package com.github.yoojia.fast.widget;
 
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.text.TextUtils;
 import android.util.AttributeSet;
-import android.view.View;
 import android.widget.TextView;
 
 import com.github.yoojia.fast.R;
+import com.github.yoojia.fast.view.ViewFinder;
 
 /**
- * Text field view
- *
+ * 静态文本型
  * @author  yoojia.chen@gmail.com
  * @version version 2015-04-15
  * @since   1.0
  */
-public class TextFieldView extends DividerLayout {
+public class StaticTextFieldView extends DividerLayout {
 
     private final TextView mLabel;
     private final TextView mValue;
 
-    public TextFieldView(Context context, AttributeSet attrs) {
+    public StaticTextFieldView(Context context, AttributeSet attrs) {
         super(context, attrs);
 
-        View.inflate(context, R.layout.ios_text_field, this);
+        inflate(context, R.layout.ios_text_field, this);
 
         mLabel = ViewFinder.find(R.id.ios_label, this);
         mValue = ViewFinder.find(R.id.ios_input, this);

@@ -1,7 +1,9 @@
-package com.github.yoojia.fast;
+package com.github.yoojia.fast.utils;
 
 import android.app.Activity;
 import android.content.Intent;
+
+import com.github.yoojia.fast.R;
 
 
 /**

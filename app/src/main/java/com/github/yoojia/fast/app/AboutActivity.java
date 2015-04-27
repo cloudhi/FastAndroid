@@ -2,7 +2,7 @@ package com.github.yoojia.fast.app;
 
 import android.support.v4.app.FragmentActivity;
 
-import com.github.yoojia.fast.UI;
+import com.github.yoojia.fast.utils.UI;
 
 /**
  * About me activity

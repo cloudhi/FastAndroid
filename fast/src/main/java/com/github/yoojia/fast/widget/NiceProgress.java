@@ -1,8 +1,10 @@
-package com.github.yoojia.fast;
+package com.github.yoojia.fast.widget;
 
 import android.app.Dialog;
 import android.content.Context;
 import android.widget.TextView;
+
+import com.github.yoojia.fast.R;
 
 /**
  * a nice progress dialog

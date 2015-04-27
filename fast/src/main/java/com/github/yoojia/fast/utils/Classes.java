@@ -1,4 +1,4 @@
-package com.github.yoojia.fast;
+package com.github.yoojia.fast.utils;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;

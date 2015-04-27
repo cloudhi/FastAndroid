@@ -1,4 +1,4 @@
-package com.github.yoojia.fast.view;
+package com.github.yoojia.fast.widget;
 
 
 import android.app.ActionBar;
@@ -9,6 +9,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.github.yoojia.fast.R;
+import com.github.yoojia.fast.view.ViewFinder;
 
 /**
  * Navigation view

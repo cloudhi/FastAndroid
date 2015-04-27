@@ -1,4 +1,4 @@
-package com.github.yoojia.fast.view;
+package com.github.yoojia.fast.widget;
 
 import android.content.Context;
 import android.content.res.TypedArray;

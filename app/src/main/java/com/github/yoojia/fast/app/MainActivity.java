@@ -8,7 +8,7 @@ import android.view.KeyEvent;
 import com.github.yoojia.fast.ExitTracker;
 import com.github.yoojia.fast.FragmentTabSpec;
 import com.github.yoojia.fast.view.AutoView;
-import com.github.yoojia.fast.view.NavigationBar;
+import com.github.yoojia.fast.widget.NavigationBar;
 import com.github.yoojia.fast.view.ViewFinder;
 
 public class MainActivity extends FragmentActivity {
