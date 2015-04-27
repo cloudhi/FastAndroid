@@ -20,7 +20,7 @@ import java.io.IOException;
  * @version version 2015-04-27
  * @since   1.1
  */
-class HttpClient {
+public class HttpClient {
 
     public static final String TAG = HttpClient.class.getSimpleName();
 
