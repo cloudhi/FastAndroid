@@ -2,7 +2,9 @@ package com.github.yoojia.fast.http;
 
 import android.text.TextUtils;
 import android.util.Log;
+import android.util.SparseArray;
 
+import com.squareup.okhttp.Call;
 import com.squareup.okhttp.Callback;
 import com.squareup.okhttp.MediaType;
 import com.squareup.okhttp.OkHttpClient;
@@ -28,6 +30,8 @@ public class HttpClient {
     private static final String DEFAULT_UA = "YOOJIA.FAST/HTTP/1.1";
     private static final OkHttpClient HTTP_CLIENT = new OkHttpClient();
 
+    private static final SparseArray<Call> REQUESTS = new SparseArray<>();
+
     private static String REMOTE_HOST;
     private static String USER_AGENT;
     private static MediaType MEDIA_TYPE;
@@ -49,10 +53,10 @@ public class HttpClient {
      * @param params 未做URL转码的参数列表
      * @param callback 回调接口
      */
-    public static void post(String params, HttpCallback callback){
+    public static int post(String params, HttpCallback callback){
         if (TextUtils.isEmpty(REMOTE_HOST)) throw new IllegalArgumentException("Remote host not set !");
         final MediaType mediaType = MEDIA_TYPE == null ? DEFAULT_TYPE : MEDIA_TYPE;
-        post(REMOTE_HOST, params, mediaType, callback);
+        return post(REMOTE_HOST, params, mediaType, callback);
     }
 
     /**
@@ -61,22 +65,38 @@ public class HttpClient {
      * @param params 参数
      * @param mediaType MediaType
      * @param callback 回调接口
+     * @return 返回一个请求ID
      */
-    public static void post(String url, String params, MediaType mediaType, HttpCallback callback){
+    public static int post(String url, String params, MediaType mediaType, HttpCallback callback){
         final RequestBody body = RequestBody.create(mediaType, params);
         final Request request = new Request.Builder()
                 .addHeader("User-Agent", TextUtils.isEmpty(USER_AGENT) ? DEFAULT_UA : USER_AGENT)
                 .url(url)
                 .post(body)
                 .build();
-        HTTP_CLIENT.newCall(request).enqueue(new RequestRunner(callback));
+        Call call = HTTP_CLIENT.newCall(request);
+        final int requestId = call.hashCode();
+        REQUESTS.put(requestId, call);
+        call.enqueue(new RequestRunner(requestId, callback));
+        return requestId;
+    }
+
+    /**
+     * 根据一个请求ID，将此请求取消
+     * @param requestId 请求ID
+     */
+    public static void cancel(int requestId){
+        Call req = REQUESTS.get(requestId);
+        if (req != null) req.cancel();
     }
 
     private static class RequestRunner implements Callback {
 
         private final HttpCallback mCallback;
+        private final int mRequestId;
 
-        private RequestRunner(HttpCallback mCallback) {
+        private RequestRunner(int requestId, HttpCallback mCallback) {
+            mRequestId = requestId;
             this.mCallback = mCallback;
             mCallback.onStarted();
         }
@@ -87,6 +107,7 @@ public class HttpClient {
             try{
                 mCallback.onErrors(e);
             }finally {
+                REQUESTS.remove(mRequestId);
                 mCallback.onCompleted();
             }
         }
@@ -99,6 +120,7 @@ public class HttpClient {
             try{
                 mCallback.onResponse(statusCode, content);
             }finally {
+                REQUESTS.remove(mRequestId);
                 mCallback.onCompleted();
             }
         }
