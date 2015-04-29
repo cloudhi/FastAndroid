@@ -3,6 +3,7 @@ package com.github.yoojia.fast.utils;
 import android.app.Activity;
 import android.content.Intent;
 
+import com.github.yoojia.fast.AppSessionManager;
 import com.github.yoojia.fast.R;
 
 
@@ -15,8 +16,26 @@ import com.github.yoojia.fast.R;
  */
 public class UI {
 
+    /**
+     * 跳转到另一个Activity
+     * @param from 从Activity
+     * @param to 目标Activity
+     */
     public static void to(Activity from, Class<? extends Activity> to){
         Intent i = new Intent(from, to);
+        from.startActivity(i);
+        startShowAnimation(from);
+    }
+
+    /**
+     * 跳转到另一个Activity，并提供配置Intent的接口
+     * @param from Activity
+     * @param to 目标Activity
+     * @param handler 通过此接口来配置Intent
+     */
+    public static void to(Activity from, Class<? extends Activity> to, IntentConfigHandler handler){
+        Intent i = new Intent(from, to);
+        handler.onIntent(i);
         from.startActivity(i);
         startShowAnimation(from);
     }

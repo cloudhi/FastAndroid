@@ -5,6 +5,8 @@ import android.app.Application;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.github.yoojia.fast.utils.IntentConfigHandler;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -85,12 +87,9 @@ public class AppSessionManager {
      */
     public void startActivity(Class<? extends Activity> target, IntentConfigHandler handler){
         Intent intent = new Intent(mApp, target);
-        if (handler != null) handler.onConfig(intent);
+        if (handler != null) handler.onIntent(intent);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         mApp.startActivity(intent);
     }
 
-    public interface IntentConfigHandler{
-        void onConfig(Intent intent);
-    }
 }

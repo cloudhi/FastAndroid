@@ -34,6 +34,11 @@ public class ExitTracker {
         mResetExitFlagHandler = new Handler(Looper.getMainLooper());
     }
 
+    /**
+     * 接入Activity的onKeyDown方法
+     * @param keyCode keyCode
+     * @param event event
+     */
     public boolean onKeyDown(int keyCode, KeyEvent event){
         if (keyCode == KeyEvent.KEYCODE_BACK && !mExitFlag.get()) {
             mExitFlag.set(true);
