@@ -6,7 +6,7 @@
               android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/ios_reduces"
+        android:id="@+id/ios_reduce"
         android:src="@mipmap/ios_input_changer_subtract"
         style="@style/iOSInputChanger.Button"
         />

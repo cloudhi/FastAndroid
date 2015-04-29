@@ -5,11 +5,9 @@ import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.FrameLayout;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import com.github.yoojia.fast.R;
@@ -29,13 +27,14 @@ public class InputChangerView extends FrameLayout{
     private ImageView mReduces;
 
     private OnValueChangedListener mOnValueChangedListener;
+    private OnChangeButtonClickListener mChangeButtonClickListener;
 
     public InputChangerView(Context context, AttributeSet attrs) {
         super(context, attrs);
         View.inflate(context, R.layout.ios_input_changer, this);
         mValue = ViewFinder.find(R.id.ios_value, this);
         mIncrease = ViewFinder.find(R.id.ios_increase, this);
-        mReduces = ViewFinder.find(R.id.ios_reduces, this);
+        mReduces = ViewFinder.find(R.id.ios_reduce, this);
 
         View.OnClickListener listener = new OnClickListener() {
             @Override
@@ -47,10 +46,18 @@ public class InputChangerView extends FrameLayout{
                 int changedValue;
                 if (id == R.id.ios_increase){
                     changedValue = intValue + 1;
-                    mValue.setText(Integer.toString(changedValue));
-                }else if (id == R.id.ios_reduces){
+                    final String s = Integer.toString(changedValue);
+                    mValue.setText(s);
+                    if (mChangeButtonClickListener != null) {
+                        mChangeButtonClickListener.onIncrease(s);
+                    }
+                }else if (id == R.id.ios_reduce){
                     changedValue = intValue <= 0 ? 0: intValue - 1;
-                    mValue.setText(Integer.toString(changedValue));
+                    final String s = Integer.toString(changedValue);
+                    mValue.setText(s);
+                    if (mChangeButtonClickListener != null) {
+                        mChangeButtonClickListener.onReduce(s);
+                    }
                 }
             }
         };
@@ -69,7 +76,7 @@ public class InputChangerView extends FrameLayout{
             @Override
             public void afterTextChanged(Editable s) {
                 mValue.setSelection(s.length());
-                if (mOnValueChangedListener != null && s.length() > 0){
+                if (mOnValueChangedListener != null && s.length() > 0) {
                     int changedValue = Integer.parseInt(s.toString());
                     mOnValueChangedListener.onValueChanged(mValue, changedValue);
                 }
@@ -93,15 +100,64 @@ public class InputChangerView extends FrameLayout{
         mValue.setText(text);
     }
 
+    /**
+     * 返回输入框的EditText对象
+     * @return EditText对象
+     */
+    public EditText getEditText(){
+        return mValue;
+    }
+
+    /**
+     * 获取输入内容
+     * @return 文本内容
+     */
     public String getInputValue(){
         return mValue.getText().toString();
     }
 
-    public void setOnValueChangedListener(OnValueChangedListener onValueChangedListener) {
-        mOnValueChangedListener = onValueChangedListener;
+    /**
+     * 设置数值变化监听接口
+     * @param listener 监听接口
+     */
+    public void setOnValueChangedListener(OnValueChangedListener listener) {
+        mOnValueChangedListener = listener;
     }
 
+    /**
+     * 设置数值增减按钮点击监听接口
+     * @param listener 监听接口
+     */
+    public void setChangeButtonClickListener(OnChangeButtonClickListener listener){
+        mChangeButtonClickListener = listener;
+    }
+
+    /**
+     * 在数值变化时回调
+     */
     public interface OnValueChangedListener{
+        /**
+         * 发生数值变化
+         * @param input EditText
+         * @param value 变化后的数值
+         */
         void onValueChanged(EditText input, int value);
+    }
+
+    /**
+     * 增减按钮被点击时回调
+     */
+    public interface OnChangeButtonClickListener {
+        /**
+         * 增加按钮被点击
+         * @param value 当前数值内容
+         */
+        void onIncrease(String value);
+
+        /**
+         * 减少按钮被点击
+         * @param value 当前数值内容
+         */
+        void onReduce(String value);
     }
 }
