@@ -43,7 +43,7 @@ class DividerLayout extends FrameLayout{
             mBottomDivider.setVisibility(GONE);
             mDivider.setVisibility(GONE);
         }
-        final boolean showDivider = myAttrs.getBoolean(R.styleable.iOSCell_last, true);
+        final boolean showDivider = myAttrs.getBoolean(R.styleable.iOSCell_showDivider, true);
         mDivider.setVisibility(showDivider ? VISIBLE : GONE);
         myAttrs.recycle();
     }
