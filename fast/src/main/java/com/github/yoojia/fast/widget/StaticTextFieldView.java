@@ -22,15 +22,15 @@ public class StaticTextFieldView extends DividerLayout {
 
     public StaticTextFieldView(Context context, AttributeSet attrs) {
         super(context, attrs);
-
         inflate(context, R.layout.ios_text_field, this);
-
         mLabel = ViewFinder.find(R.id.ios_label, this);
         mValue = ViewFinder.find(R.id.ios_input, this);
-        findDividers();
+
+        initDividers();
 
         final TypedArray myAttrs = context.obtainStyledAttributes(attrs, R.styleable.iOSTextField);
         configDividers(attrs);
+
         // 配置 Label
         final String label = myAttrs.getString(R.styleable.iOSTextField_textLabel);
         if (!TextUtils.isEmpty(label)){

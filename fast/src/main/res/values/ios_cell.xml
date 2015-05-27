@@ -29,6 +29,7 @@
     <declare-styleable name="iOSCell">
         <attr name="first" format="boolean" />
         <attr name="last" format="boolean" />
+        <attr name="showDivider" format="boolean" />
     </declare-styleable>
 
 </resources>

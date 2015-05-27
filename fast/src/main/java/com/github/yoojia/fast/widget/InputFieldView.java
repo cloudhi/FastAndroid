@@ -35,10 +35,12 @@ public class InputFieldView extends DividerLayout{
         mIcon = ViewFinder.find(R.id.ios_icon, this);
         mLabel = ViewFinder.find(R.id.ios_label, this);
         mInput = ViewFinder.find(R.id.ios_input, this);
-        findDividers();
+        initDividers();
+
         mIcon.setVisibility(GONE);
         final TypedArray myAttrs = context.obtainStyledAttributes(attrs, R.styleable.iOSInputField);
         configDividers(attrs);
+
         // 配置 Label
         final String label = myAttrs.getString(R.styleable.iOSInputField_inputLabel);
         if (!TextUtils.isEmpty(label)){

@@ -15,7 +15,7 @@ import com.github.yoojia.fast.R;
  * @version version 2015-04-15
  * @since   1.0
  */
-public class DividerLayout extends FrameLayout{
+class DividerLayout extends FrameLayout{
 
     private View mTopDivider;
     private View mBottomDivider;
@@ -25,7 +25,7 @@ public class DividerLayout extends FrameLayout{
         super(context, attrs);
     }
 
-    protected void findDividers(){
+    protected void initDividers(){
         mTopDivider = findViewById(R.id.ios_top_divider);
         mBottomDivider = findViewById(R.id.ios_bottom_divider);
         mDivider = findViewById(R.id.ios_divider);
@@ -33,15 +33,18 @@ public class DividerLayout extends FrameLayout{
 
     protected void configDividers(final AttributeSet attrs){
         final TypedArray myAttrs = getContext().obtainStyledAttributes(attrs, R.styleable.iOSCell);
-        final boolean isFirstCell = myAttrs.getBoolean(R.styleable.iOSCell_first, false);
-        if (isFirstCell){
-            mTopDivider.setVisibility(VISIBLE);
-        }
-        final boolean isLastCell = myAttrs.getBoolean(R.styleable.iOSCell_last, false);
-        if (isLastCell){
+        final boolean isFirst = myAttrs.getBoolean(R.styleable.iOSCell_first, false);
+        mTopDivider.setVisibility(isFirst ? VISIBLE : GONE);
+        final boolean isLast = myAttrs.getBoolean(R.styleable.iOSCell_last, false);
+        if (isLast){
             mBottomDivider.setVisibility(VISIBLE);
             mDivider.setVisibility(GONE);
+        }else{
+            mBottomDivider.setVisibility(GONE);
+            mDivider.setVisibility(GONE);
         }
+        final boolean showDivider = myAttrs.getBoolean(R.styleable.iOSCell_showDivider, true);
+        mDivider.setVisibility(showDivider ? VISIBLE : GONE);
         myAttrs.recycle();
     }
 }
