@@ -34,17 +34,17 @@ class DividerLayout extends FrameLayout{
     protected void configDividers(final AttributeSet attrs){
         final TypedArray myAttrs = getContext().obtainStyledAttributes(attrs, R.styleable.iOSCell);
         final boolean isFirst = myAttrs.getBoolean(R.styleable.iOSCell_first, false);
-        mTopDivider.setVisibility(isFirst ? VISIBLE : GONE);
+        mTopDivider.setVisibility(isFirst ? VISIBLE : INVISIBLE);
         final boolean isLast = myAttrs.getBoolean(R.styleable.iOSCell_last, false);
         if (isLast){
             mBottomDivider.setVisibility(VISIBLE);
-            mDivider.setVisibility(GONE);
+            mDivider.setVisibility(INVISIBLE);
         }else{
-            mBottomDivider.setVisibility(GONE);
-            mDivider.setVisibility(GONE);
+            mBottomDivider.setVisibility(INVISIBLE);
+            mDivider.setVisibility(INVISIBLE);
         }
         final boolean showDivider = myAttrs.getBoolean(R.styleable.iOSCell_showDivider, true);
-        mDivider.setVisibility(showDivider ? VISIBLE : GONE);
+        mDivider.setVisibility(showDivider ? VISIBLE : INVISIBLE);
         myAttrs.recycle();
     }
 }
