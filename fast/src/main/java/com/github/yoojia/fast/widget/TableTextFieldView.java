@@ -34,11 +34,13 @@ public class TableTextFieldView extends DividerLayout {
         mLabel = ViewFinder.find(R.id.ios_name, this);
         mValue = ViewFinder.find(R.id.ios_value, this);
         mActionHandler = ViewFinder.find(R.id.ios_action_handler, this);
-        findDividers();
+        initDividers();
+
         mNext = ViewFinder.find(R.id.ios_next, this);
 
         final TypedArray myAttrs = context.obtainStyledAttributes(attrs, R.styleable.iOSTableStaticCell);
         configDividers(attrs);
+
         // 1. Icon
         final int iconResId = myAttrs.getResourceId(R.styleable.iOSTableStaticCell_cellIcon, 0);
         if (iconResId != 0){
