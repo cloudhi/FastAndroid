@@ -43,6 +43,8 @@ public class StaticTextFieldView extends DividerLayout {
         final String text = myAttrs.getString(R.styleable.iOSTextField_android_text);
         mValue.setText(text);
 
+        configValueGravity(mValue, attrs);
+
         myAttrs.recycle();
 
     }

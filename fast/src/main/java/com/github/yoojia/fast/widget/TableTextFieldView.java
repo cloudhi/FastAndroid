@@ -59,6 +59,10 @@ public class TableTextFieldView extends DividerLayout {
         if (disabledNext){
             mNext.setVisibility(GONE);
         }
+
+        configValueGravity(mValue, attrs);
+
+        myAttrs.recycle();
     }
 
     @Override

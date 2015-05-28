@@ -30,6 +30,10 @@
         <attr name="first" format="boolean" />
         <attr name="last" format="boolean" />
         <attr name="showDivider" format="boolean" />
+        <attr name="textGravity" format="enum">
+            <enum name="left" value="0"/>
+            <enum name="right" value="1"/>
+        </attr>
     </declare-styleable>
 
 </resources>

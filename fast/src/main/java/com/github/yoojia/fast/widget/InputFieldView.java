@@ -38,6 +38,7 @@ public class InputFieldView extends DividerLayout{
         initDividers();
 
         mIcon.setVisibility(GONE);
+
         final TypedArray myAttrs = context.obtainStyledAttributes(attrs, R.styleable.iOSInputField);
         configDividers(attrs);
 
@@ -67,10 +68,8 @@ public class InputFieldView extends DividerLayout{
         // 5. editable
         final boolean enabled = myAttrs.getBoolean(R.styleable.iOSInputField_android_enabled, true);
         mInput.setEnabled(enabled);
-        // 6. Gravity
-        final int gravity = myAttrs.getInt(R.styleable.iOSInputField_inputGravity, 0);
-        if (gravity == 0) mInput.setGravity(Gravity.LEFT);
-        else if (gravity == 1) mInput.setGravity(Gravity.RIGHT);
+
+        configValueGravity(mInput, attrs);
 
         myAttrs.recycle();
         innerActions();

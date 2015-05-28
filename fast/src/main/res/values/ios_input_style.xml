@@ -25,10 +25,6 @@
 
     <declare-styleable name="iOSInputField">
         <attr name="inputLabel" format="string|reference" />
-        <attr name="inputGravity" format="enum">
-            <enum name="left" value="0"/>
-            <enum name="right" value="1"/>
-        </attr>
         <attr name="android:text"/>
         <attr name="android:hint"/>
         <attr name="android:inputType" />
