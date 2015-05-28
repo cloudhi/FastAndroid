@@ -22,7 +22,7 @@ import com.github.yoojia.fast.view.ViewFinder;
  * @version version 2015-04-19
  * @since   1.0
  */
-public class ChangeValueView extends DividerLayout{
+public class ChangeValueView extends FrameLayout{
 
     private EditText mValue;
 
@@ -34,7 +34,6 @@ public class ChangeValueView extends DividerLayout{
         View.inflate(context, R.layout.ios_input_changer, this);
         mValue = ViewFinder.find(R.id.ios_value, this);
         final TypedArray myAttrs = context.obtainStyledAttributes(attrs, R.styleable.iOSInputField);
-        configDividers(attrs);
         // 配置输入框长度限制
         final int inputMax = myAttrs.getInt(R.styleable.iOSInputField_android_maxLength, -1);
         if(inputMax != -1){

@@ -43,7 +43,7 @@ class DividerLayout extends FrameLayout{
             mDivider.setVisibility(INVISIBLE);
         }else{
             mBottomDivider.setVisibility(INVISIBLE);
-            mDivider.setVisibility(INVISIBLE);
+            mDivider.setVisibility(VISIBLE);
         }
         cellConfig.recycle();
     }
