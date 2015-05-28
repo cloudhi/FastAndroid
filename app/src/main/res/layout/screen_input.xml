@@ -7,21 +7,21 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
-    <com.github.yoojia.fast.widget.InputFieldView
+    <com.github.yoojia.fast.widget.TableInputFieldView
         ios:inputLabel="Username"
         ios:first="true"
         android:hint="Your username"
         style="@style/iOSInputField"/>
 
 
-    <com.github.yoojia.fast.widget.InputFieldView
+    <com.github.yoojia.fast.widget.TableInputFieldView
         ios:inputLabel="Mobile"
         android:hint="Your mobile number"
         android:inputType="numberSigned"
         android:maxLength="11"
         style="@style/iOSInputField"/>
 
-    <com.github.yoojia.fast.widget.InputFieldView
+    <com.github.yoojia.fast.widget.TableInputFieldView
         ios:inputLabel="Password"
         android:hint="Your password"
         ios:last="true"
@@ -29,20 +29,20 @@
         android:maxLength="20"
         style="@style/iOSInputField"/>
 
-    <com.github.yoojia.fast.widget.StaticTextFieldView
+    <com.github.yoojia.fast.widget.TableStaticFieldView
         android:layout_marginTop="10dp"
         ios:textLabel="Static"
         ios:first="true"
         android:text="Using 'android:text'"
         style="@style/iOSInputField"/>
 
-    <com.github.yoojia.fast.widget.StaticTextFieldView
+    <com.github.yoojia.fast.widget.TableStaticFieldView
         ios:textLabel="Right"
         ios:textGravity="right"
         android:text="Using 'ios:textGravity'"
         style="@style/iOSInputField"/>
 
-    <com.github.yoojia.fast.widget.StaticStubFieldView
+    <com.github.yoojia.fast.widget.TableStubFieldView
         ios:textLabel="Stub"
         ios:last="true"
         android:id="@+id/stub"

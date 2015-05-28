@@ -22,7 +22,7 @@ To create Android App fast.
 - `:last="true"`
 - `:textGravity="left|right"`
 
-#### InputFieldView
+#### TableInputFieldView
 
 - `android:inputType`
 - `android:hint`
@@ -31,7 +31,7 @@ To create Android App fast.
 - `android:enabled`
 
 
-#### StatucTextFieldView
+#### TableStaticFieldView
 
 - `:textLabel`
 - `android:text`
@@ -42,4 +42,9 @@ To create Android App fast.
 - `:cellLabel`
 - `:cellValue`
 - `:cellDisabledNext`
-    
+
+#### ChangeValueView
+
+- `android:maxLength`
+
+#### TableStubFieldView

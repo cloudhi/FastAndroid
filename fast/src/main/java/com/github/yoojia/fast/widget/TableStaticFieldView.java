@@ -4,28 +4,27 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.text.TextUtils;
 import android.util.AttributeSet;
-import android.view.ViewStub;
 import android.widget.TextView;
 
 import com.github.yoojia.fast.R;
 import com.github.yoojia.fast.view.ViewFinder;
 
 /**
- * 动态填充View组件的表格单元
+ * 静态文本型
  * @author  yoojia.chen@gmail.com
  * @version version 2015-04-15
- * @since   1.1.7
+ * @since   1.0
  */
-public class StaticStubFieldView extends DividerLayout {
+public class TableStaticFieldView extends DividerLayout {
 
     private final TextView mLabel;
-    private final ViewStub mStub;
+    private final TextView mValue;
 
-    public StaticStubFieldView(Context context, AttributeSet attrs) {
+    public TableStaticFieldView(Context context, AttributeSet attrs) {
         super(context, attrs);
-        inflate(context, R.layout.ios_static_stub, this);
+        inflate(context, R.layout.ios_text_field, this);
         mLabel = ViewFinder.find(R.id.ios_label, this);
-        mStub = ViewFinder.find(R.id.ios_stub, this);
+        mValue = ViewFinder.find(R.id.ios_input, this);
 
         initDividers();
 
@@ -39,7 +38,15 @@ public class StaticStubFieldView extends DividerLayout {
         }else{
             mLabel.setVisibility(GONE);
         }
+
+        // 4. Text
+        final String text = myAttrs.getString(R.styleable.iOSTextField_android_text);
+        mValue.setText(text);
+
+        configValueGravity(mValue, attrs);
+
         myAttrs.recycle();
+
     }
 
     @Override
@@ -48,11 +55,35 @@ public class StaticStubFieldView extends DividerLayout {
     }
 
     /**
-     * 获取Stub
-     * @return ViewStub
+     * 获取输入框
+     * @return EditText
      */
-    public ViewStub getStubView(){
-        return mStub;
+    public TextView getTextView(){
+        return mValue;
+    }
+
+    /**
+     * 获取输入内容
+     * @return 输入内容
+     */
+    public String getInputValue(){
+        return mValue.getText().toString();
+    }
+
+    /**
+     * 设置输入框文本内容
+     * @param text 文本内容
+     */
+    public void setText(CharSequence text){
+        mValue.setText(text);
+    }
+
+    /**
+     * 设置输入框文本内容
+     * @param text 文本内容
+     */
+    public void setText(int text){
+        mValue.setText(text);
     }
 
     /**

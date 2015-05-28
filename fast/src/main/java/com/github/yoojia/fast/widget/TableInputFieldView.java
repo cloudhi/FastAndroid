@@ -23,13 +23,13 @@ import com.github.yoojia.fast.view.ViewFinder;
  * @version version 2015-04-14
  * @since   1.0
  */
-public class InputFieldView extends DividerLayout{
+public class TableInputFieldView extends DividerLayout{
 
     protected final TextView mLabel;
     protected final EditText mInput;
     protected final ImageView mIcon;
 
-    public InputFieldView(Context context, AttributeSet attrs) {
+    public TableInputFieldView(Context context, AttributeSet attrs) {
         super(context, attrs);
         inflate(context, R.layout.ios_input_field, this);
         mIcon = ViewFinder.find(R.id.ios_icon, this);

@@ -10,7 +10,7 @@ import android.view.ViewStub;
 
 import com.github.yoojia.fast.view.AutoView;
 import com.github.yoojia.fast.view.ViewFinder;
-import com.github.yoojia.fast.widget.StaticStubFieldView;
+import com.github.yoojia.fast.widget.TableStubFieldView;
 
 /**
  * input field fragment
@@ -22,7 +22,7 @@ import com.github.yoojia.fast.widget.StaticStubFieldView;
 public class InputFieldFragment extends Fragment{
 
     @AutoView(viewId = R.id.stub)
-    private StaticStubFieldView mStub;
+    private TableStubFieldView mStub;
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
