@@ -29,4 +29,23 @@
         android:maxLength="20"
         style="@style/iOSInputField"/>
 
+    <com.github.yoojia.fast.widget.StaticTextFieldView
+        android:layout_marginTop="10dp"
+        ios:textLabel="Static"
+        ios:first="true"
+        android:text="Using 'android:text'"
+        style="@style/iOSInputField"/>
+
+    <com.github.yoojia.fast.widget.StaticTextFieldView
+        ios:textLabel="Right"
+        ios:textGravity="right"
+        android:text="Using 'ios:textGravity'"
+        style="@style/iOSInputField"/>
+
+    <com.github.yoojia.fast.widget.StaticStubFieldView
+        ios:textLabel="Stub"
+        ios:last="true"
+        android:id="@+id/stub"
+        style="@style/iOSInputField"/>
+
 </LinearLayout>

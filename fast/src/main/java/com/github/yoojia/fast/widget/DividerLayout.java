@@ -45,8 +45,6 @@ class DividerLayout extends FrameLayout{
             mBottomDivider.setVisibility(INVISIBLE);
             mDivider.setVisibility(INVISIBLE);
         }
-        final boolean showDivider = cellConfig.getBoolean(R.styleable.iOSCell_showDivider, true);
-        mDivider.setVisibility(showDivider ? VISIBLE : INVISIBLE);
         cellConfig.recycle();
     }
 
