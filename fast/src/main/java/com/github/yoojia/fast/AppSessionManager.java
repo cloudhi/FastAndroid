@@ -73,6 +73,16 @@ public class AppSessionManager {
     }
 
     /**
+     * 关闭其它Activity，除了指定的Activity外。
+     * @param exclude
+     */
+    public void colseActivities(Activity exclude){
+        for (Activity activity : mActivities){
+            if (activity != exclude) activity.finish();
+        }
+    }
+
+    /**
      * 启动一个Activity
      * @param target Activity类
      */

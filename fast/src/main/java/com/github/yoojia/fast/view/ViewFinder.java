@@ -4,6 +4,9 @@ import android.app.Activity;
 import android.view.View;
 
 import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * View finder
@@ -26,6 +29,17 @@ public class ViewFinder {
 
     /**
      * 查找ViewID的View，并自动类型转换
+     * @param parentView View所在的宿主
+     * @param viewId View ID
+     * @param <ViewType> 自动转换类型
+     * @return View
+     */
+    public static <ViewType> ViewType find(View parentView, int viewId){
+        return find(viewId, parentView);
+    }
+
+    /**
+     * 查找ViewID的View，并自动类型转换
      * @param viewId View ID
      * @param parentView View所在的宿主
      * @param <ViewType> 自动转换类型
@@ -33,6 +47,17 @@ public class ViewFinder {
      */
     public static <ViewType> ViewType find(int viewId, Activity parentView){
         return (ViewType) parentView.findViewById(viewId);
+    }
+
+    /**
+     * 查找ViewID的View，并自动类型转换
+     * @param parentView View所在的宿主
+     * @param viewId View ID
+     * @param <ViewType> 自动转换类型
+     * @return View
+     */
+    public static <ViewType> ViewType find(Activity parentView, int viewId){
+        return find(viewId, parentView);
     }
 
     /**
@@ -53,7 +78,7 @@ public class ViewFinder {
     }
 
     private static void _inject(Object host, Object viewParent){
-        final Field[] fields = host.getClass().getDeclaredFields();
+        final List<Field> fields = getAllFields(host.getClass());
         for (Field field : fields){
             AutoView config = field.getAnnotation(AutoView.class);
             if (config == null) continue;
@@ -77,6 +102,15 @@ public class ViewFinder {
                 throw new IllegalArgumentException(cce);
             }
         }
+    }
+
+    public static List<Field> getAllFields(Class<?> clazz){
+        final List<Field> fields = new ArrayList<>();
+        for(Class<?> current = clazz; current != Object.class; current = current.getSuperclass()) {
+            Field[] _fields = current.getDeclaredFields();
+            fields.addAll(Arrays.asList(_fields));
+        }
+        return fields;
     }
 
 }
