@@ -1,7 +1,10 @@
 package com.github.yoojia.fast.view;
 
 import android.app.Activity;
+import android.util.Log;
 import android.view.View;
+
+import com.github.yoojia.fast.utils.Classes;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -78,7 +81,7 @@ public class ViewFinder {
     }
 
     private static void _inject(Object host, Object viewParent){
-        final List<Field> fields = getAllFields(host.getClass());
+        final List<Field> fields = Classes.getAllFields(host.getClass());
         for (Field field : fields){
             AutoView config = field.getAnnotation(AutoView.class);
             if (config == null) continue;
@@ -96,21 +99,14 @@ public class ViewFinder {
             final Class<?> type = field.getType();
             try {
                 field.set(host, type.cast(view));
-            } catch (IllegalAccessException iae) {
+            } catch (Exception iae) {
+                Log.e("ViewFinder", String.format("> Auto inject(id:%d, view:%s) to field(:%s)",
+                        config.viewId(), view, field.getName()));
                 throw new IllegalStateException(iae);
-            }catch (ClassCastException cce){
-                throw new IllegalArgumentException(cce);
             }
         }
     }
 
-    public static List<Field> getAllFields(Class<?> clazz){
-        final List<Field> fields = new ArrayList<>();
-        for(Class<?> current = clazz; current != Object.class; current = current.getSuperclass()) {
-            Field[] _fields = current.getDeclaredFields();
-            fields.addAll(Arrays.asList(_fields));
-        }
-        return fields;
-    }
+
 
 }

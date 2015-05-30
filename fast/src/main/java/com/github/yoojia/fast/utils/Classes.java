@@ -2,6 +2,9 @@ package com.github.yoojia.fast.utils;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * 反射工具类
@@ -55,5 +58,19 @@ public class Classes {
             }
         }
         return null;
+    }
+
+    /**
+     * 获取这个类及父类的所有Field
+     * @param clazz 类
+     * @return Field列表
+     */
+    public static List<Field> getAllFields(Class<?> clazz){
+        final List<Field> fields = new ArrayList<>();
+        for(Class<?> current = clazz; current != Object.class; current = current.getSuperclass()) {
+            Field[] _fields = current.getDeclaredFields();
+            fields.addAll(Arrays.asList(_fields));
+        }
+        return fields;
     }
 }
